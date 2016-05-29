@@ -3,14 +3,16 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <!-- flat-ui -->
     <link rel="stylesheet" charset="utf-8" href="bower_components/flat-ui/dist/css/vendor/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" charset="utf-8" href="bower_components/flat-ui/dist/css/flat-ui.css" rel="stylesheet">
+	
     <!-- common, index etc.. -->
     <link rel="stylesheet" href="css/common.css">
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/table.css">
+	
     <!-- icon font -->
     <link href="http://cdn.materialdesignicons.com/1.6.50/css/materialdesignicons.min.css" media="all" rel="stylesheet">
   </head>
@@ -24,98 +26,111 @@
           <span class="icon-bar"></span>
         </button>
         <a class="navbar-brand">
-			<i class="mdi mdi-calendar-today" aria-hidden="true"></i>
-            <span>Project-Timetable</span>
-          </a>
+		  <i class="mdi mdi-calendar-today"></i>
+          <span>Project-Timetable</span>
+        </a>
+      </div>
+      <div class="navbar-collapse collapse" id="navbar-collapse-9">
+        <ul class="nav navbar-nav">
+          <li>
+            <a href="http://seogwipo.hs.kr" target="_blank">
+              <i class="mdi mdi-school"></i>
+              <span>서귀포고</span>
+            </a>
+          </li>
+          <li class="active">
+            <a href="issue">
+              <i class="mdi mdi-flag"></i>
+              <span>문의</span>
+            </a>
+          </li>
+          <li>
+		    <a>
+              <i class="mdi mdi-clock"></i>
+              <span>7:30</span>
+            </a>
+          </li>
+        </ul>
+        
+		<form class="navbar-form navbar-right visible-lg" role="form">
+          <div class="form-group">
+            <input type="text" placeholder="Email" class="form-control">
+            <input type="password" placeholder="Password" class="form-control">
+          </div>
+          <button type="submit" class="btn btn-primary">
+            <i class="mdi mdi-account"></i>
+            <span>로그인</sapn>
+          </button>
+        </form>
+		
+        <div class="navbar-right navbar-form hidden-lg">
+          <button class="btn btn-primary" href="#!">
+            <i class="mdi mdi-account"></i>
+            로그인
+          </button>
         </div>
-        <div class="navbar-collapse collapse" id="navbar-collapse-9">
-          <ul class="nav navbar-nav">
-            <li><a href="http://seogwipo.hs.kr" target="_blank">
-              <i class="mdi mdi-school" aria-hidden="true"></i>
-              <span>서귀포고</span></a>
-            </li>
-            <li class="active"><a href="issu">
-              <i class="mdi mdi-flag" aria-hidden="true"></i>
-              <span>문의</span></a>
-            </li>
-            <li ><a>
-              <i class="mdi mdi-clock" aria-hidden="true"></i>
-              <span>7:30</span></a>
-            </li>
-          </ul>
-          <form class="navbar-form navbar-right" role="form">
-            <div class="form-group">
-              <input type="text" placeholder="Email" class="form-control">
-            </div>
-              <button type="submit" class="btn btn-success">
-                <i class="mdi mdi-account" aria-hidden="true"></i>
-                <span>로그인</sapn>
-                </button>
-            </form>
-        </div>
+      </div>
     </nav>
+	
     <main class="section">
       <ul class="nav nav-tabs" id="top">
-       <li role="presentation" class="active">
-        <a href="#1grade">
-          <i class="mdi mdi-face" aria-hidden="true"></i>
-              <span>1학년</span>
-              <span class="sr-only"> (current)</span>
+        <li role="presentation" class="active">
+          <a href="#1grade">
+            <i class="mdi mdi-face"></i>
+            <span>1학년</span>
+            <span class="sr-only"> (current)</span>
           </a>
-      </li>
-      <li role="presentation">
-        <a href="#2grade">
-          <i class="mdi mdi-face" aria-hidden="true"></i>
-              <span>2학년<span>
-              <span class="sr-only"> (current)</span>
+        </li>
+        <li role="presentation">
+          <a href="#2grade">
+            <i class="mdi mdi-face"></i>
+            <span>2학년<span>
           </a>
-      </li>
-      <li role="presentation">
-        <a href="#3grade">
-          <i class="mdi mdi-face" aria-hidden="true"></i>
+        </li>
+        <li role="presentation">
+          <a href="#3grade">
+            <i class="mdi mdi-face"></i>
               <span>3학년</span>
-              <span class="sr-only"> (current)</span>
-          </a>
-      </li>
-    </ul>
-    <div class="row grid" style="position:relative; hight: 733px;" id="top">
-      <div class="gg card-2">
-        <h2><i class="mdi mdi-dribbble red-text"></i>
-        </h2>
-        <h7>체육</h7>
+            </a>
+        </li>
+      </ul>
+      <div class="row grid timetable" id="top">
+        <div class="gg card-2">
+          <h2><i class="mdi mdi-dribbble red-text"></i></h2>
+          <h7>체육</h7>
+        </div>
+		
+        <div class="gg card-2">
+          <h2><i class="mdi mdi-dribbble red-text"></i></h2>
+          <h7>체육</h7>
+        </div>
+		
+        <div class="gg card-2">
+          <h2><i class="mdi mdi-dribbble red-text"></i></h2>
+          <h7>체육</h7>
+        </div>
+		
+        <div class="gg card-2">
+          <h2><i class="mdi mdi-dribbble red-text"></i></h2>
+          <h7>체육</h7>
+        </div>
+		
+        <div class="gg card-2">
+          <h2><i class="mdi mdi-dribbble red-text"></i></h2>
+          <h7>체육</h7>
+        </div>
+		
+        <div class="gg card-2">
+          <h2><i class="mdi mdi-dribbble red-text"></i></h2>
+          <h7>체육</h7>
+        </div>
+		
+        <div class="gg card-2">
+          <h2><i class="mdi mdi-dribbble red-text"></i></h2>
+          <h7>체육</h7>
+        </div>
       </div>
-      <div class="gg card-2">
-        <h2><i class="mdi mdi-dribbble red-text"></i>
-        </h2>
-        <h7>체육</h7>
-      </div>
-      <div class="gg card-2">
-        <h2><i class="mdi mdi-dribbble red-text"></i>
-        </h2>
-        <h7>체육</h7>
-      </div>
-      <div class="gg card-2">
-        <h2><i class="mdi mdi-dribbble red-text"></i>
-        </h2>
-        <h7>체육</h7>
-      </div>
-      <div class="gg card-2">
-        <h2><i class="mdi mdi-dribbble red-text"></i>
-        </h2>
-        <h7>체육</h7>
-      </div>
-      <div class="gg card-2">
-        <h2><i class="mdi mdi-dribbble red-text"></i>
-        </h2>
-        <h7>체육</h7>
-      </div>
-      <div class="gg card-2">
-        <h2><i class="mdi mdi-dribbble red-text"></i>
-        </h2>
-        <h7>체육</h7>
-      </div>
-    </div>
-  </main>
+    </main>
     <script src="bower_components/flat-ui/dist/js/vendor/jquery.min.js"></script>
     <script src="bower_components/flat-ui/dist/js/flat-ui.js"></script>
   </body>
