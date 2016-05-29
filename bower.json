@@ -1,0 +1,15 @@
+{
+  "name": "project-TimeTable",
+  "homepage": "https://github.com/MuhunKim/project-TimeTable",
+  "authors": [
+    "BetaFish <yale2a1@gmail.com>",
+    "HelloWorld017 <deu07115@gmail.com>"
+  ],
+  "description": "Timetable Management Services of School",
+  "main": "",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "flat-ui": "^2.3.0"
+  }
+}
