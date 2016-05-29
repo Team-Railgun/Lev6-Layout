@@ -1,0 +1,28 @@
+@import url(http://fonts.googleapis.com/earlyaccess/notosanskr.css);
+@import url(https://fonts.googleapis.com/css?family=Ubuntu:300,300italic,400,400italic,500,500italic,700,700italic);
+
+* {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: 'Ubuntu', 'Roboto', 'Noto Sans KR', sans-serif;
+}
+
+/* TODO:오버런 네비계이션 네누 스타일
+.bgwhite{
+  background-color: white;
+  color: black;
+}
+
+.left-tri-wrapper.bgwhite:before {
+    background: url('/img/202020');
+}
+.left-tri-wrapper:before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: -30px;
+    width: 30px;
+    height: 64px;
+}*/
