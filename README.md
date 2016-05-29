@@ -5,6 +5,7 @@ Timetable Management Services of School (Only Front-end source)
 ```console
 $ git clone https://github.com/MuhunKim/project-TimeTable.git
 $ cd project-TimeTable && bower install flat-ui
+```
 ## License
 ```
 The MIT License (MIT)
