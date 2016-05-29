@@ -7,9 +7,10 @@
     <!-- flat-ui -->
     <link rel="stylesheet" charset="utf-8" href="bower_components/flat-ui/dist/css/vendor/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" charset="utf-8" href="bower_components/flat-ui/dist/css/flat-ui.css" rel="stylesheet">
-    <!-- common, index -->
+    <!-- common, index etc.. -->
     <link rel="stylesheet" href="css/common.css">
     <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/table.css">
     <!-- icon font -->
     <link href="http://cdn.materialdesignicons.com/1.6.50/css/materialdesignicons.min.css" media="all" rel="stylesheet">
   </head>
@@ -42,38 +43,80 @@
               <span>7:30</span></a>
             </li>
           </ul>
-          <form class="navbar-form navbar-right" role="form"><a href="login">
-            <button type="submit" class="btn btn-success navbar-btn" aria-label="Profile" style="color:white">
-              <i class="mdi mdi-account" aria-hidden="true"></i>
-              <span>로그인</span></a>
-            </button>
-          </form>
+          <form class="navbar-form navbar-right" role="form">
+            <div class="form-group">
+              <input type="text" placeholder="Email" class="form-control">
+            </div>
+              <button type="submit" class="btn btn-success">
+                <i class="mdi mdi-account" aria-hidden="true"></i>
+                <span>로그인</sapn>
+                </button>
+            </form>
         </div>
     </nav>
-    <ul class="nav nav-tabs" id="top">
-     <li role="presentation" class="active">
-      <a href="#1grade">
-        <i class="mdi mdi-face" aria-hidden="true"></i>
-            <span>1학년</span>
-            <span class="sr-only"> (current)</span>
-        </a>
-    </li>
-    <li role="presentation">
-      <a href="#2grade">
-        <i class="mdi mdi-face" aria-hidden="true"></i>
-            <span>2학년<span>
-            <span class="sr-only"> (current)</span>
-        </a>
-    </li>
-    <li role="presentation">
-      <a href="#3grade">
-        <i class="mdi mdi-face" aria-hidden="true"></i>
-            <span>3학년</span>
-            <span class="sr-only"> (current)</span>
-        </a>
-    </li>
-  </ul>
-      <script src="bower_components/flat-ui/dist/js/vendor/jquery.min.js"></script>
-      <script src="bower_components/flat-ui/dist/js/flat-ui.js"></script>
+    <main class="section">
+      <ul class="nav nav-tabs" id="top">
+       <li role="presentation" class="active">
+        <a href="#1grade">
+          <i class="mdi mdi-face" aria-hidden="true"></i>
+              <span>1학년</span>
+              <span class="sr-only"> (current)</span>
+          </a>
+      </li>
+      <li role="presentation">
+        <a href="#2grade">
+          <i class="mdi mdi-face" aria-hidden="true"></i>
+              <span>2학년<span>
+              <span class="sr-only"> (current)</span>
+          </a>
+      </li>
+      <li role="presentation">
+        <a href="#3grade">
+          <i class="mdi mdi-face" aria-hidden="true"></i>
+              <span>3학년</span>
+              <span class="sr-only"> (current)</span>
+          </a>
+      </li>
+    </ul>
+    <div class="row grid" style="position:relative; hight: 733px;" id="top">
+      <div class="gg card-2">
+        <h2><i class="mdi mdi-dribbble red-text"></i>
+        </h2>
+        <h7>체육</h7>
+      </div>
+      <div class="gg card-2">
+        <h2><i class="mdi mdi-dribbble red-text"></i>
+        </h2>
+        <h7>체육</h7>
+      </div>
+      <div class="gg card-2">
+        <h2><i class="mdi mdi-dribbble red-text"></i>
+        </h2>
+        <h7>체육</h7>
+      </div>
+      <div class="gg card-2">
+        <h2><i class="mdi mdi-dribbble red-text"></i>
+        </h2>
+        <h7>체육</h7>
+      </div>
+      <div class="gg card-2">
+        <h2><i class="mdi mdi-dribbble red-text"></i>
+        </h2>
+        <h7>체육</h7>
+      </div>
+      <div class="gg card-2">
+        <h2><i class="mdi mdi-dribbble red-text"></i>
+        </h2>
+        <h7>체육</h7>
+      </div>
+      <div class="gg card-2">
+        <h2><i class="mdi mdi-dribbble red-text"></i>
+        </h2>
+        <h7>체육</h7>
+      </div>
+    </div>
+  </main>
+    <script src="bower_components/flat-ui/dist/js/vendor/jquery.min.js"></script>
+    <script src="bower_components/flat-ui/dist/js/flat-ui.js"></script>
   </body>
 </html>
