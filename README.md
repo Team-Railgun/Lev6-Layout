@@ -1,9 +1,9 @@
-# project-TimeTable
-Timetable Management Services of School (Only Front-end source)
+# Lev6
+Timetable Management Services of School (Front-end)
 
 ## How to run
 ```console
-$ git clone https://github.com/Team-Railgun/project-TimeTable.git
+$ git clone https://github.com/Team-Railgun/Lev6.git
 $ cd project-TimeTable && bower install
 ```
 ## License
