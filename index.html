@@ -47,10 +47,35 @@
           <li>
 		    <a>
               <i class="mdi mdi-clock"></i>
-              <span>7:30</span>
+              <span id ='time'></span>
             </a>
           </li>
         </ul>
+        <script type="text/javascript">
+        function startTime() {
+          var today = new Date();
+          var h = today.getHours();
+          var m = today.getMinutes();
+          var s = today.getSeconds();
+
+          m = checkTime(m);
+          s = checkTime(s);
+          document.getElementById("time").innerHTML = h + ":" + m;
+          t = setTimeout(function () {
+            startTime()
+          }, 500);
+        }
+
+        // 10보다 작을때 앞에 0 생성
+        function checkTime(i) {
+          if (i < 10) {
+            i = "0" + i;
+          }
+          return i;
+        }
+
+        startTime();
+        </script>
 
 		<form class="navbar-form navbar-right visible-lg" role="form">
           <div class="form-group">
