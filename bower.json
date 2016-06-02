@@ -1,5 +1,5 @@
 {
-  "name": "project-TimeTable",
+  "name": "lev-6",
   "homepage": "https://github.com/MuhunKim/project-TimeTable",
   "authors": [
     "BetaFish <yale2a1@gmail.com>",
@@ -10,6 +10,8 @@
   "license": "MIT",
   "private": true,
   "dependencies": {
-    "flat-ui": "^2.3.0"
+    "flat-ui": "^2.3.0",
+    "three.js": "threejs#*",
+    "lodash": "^4.13.1"
   }
 }
