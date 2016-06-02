@@ -1,3 +1,4 @@
+[![Stories in Ready](https://badge.waffle.io/Team-Railgun/Lev6.png?label=ready&title=Ready)](https://waffle.io/Team-Railgun/Lev6)
 # Lev6
 Timetable Management Services of School (Front-end)
 
