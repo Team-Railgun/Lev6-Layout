@@ -26,6 +26,13 @@
     height: 50vh;
 }
 
+footer {
+    background-color: #edeff1;
+    color: #bac1c8;
+    font-size: 15px;
+    padding: 0;
+}
+
 /* TODO:오버런 네비계이션 네누 스타일
 .bgwhite{
   background-color: white;

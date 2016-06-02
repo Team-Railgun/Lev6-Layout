@@ -13,7 +13,7 @@
 }
 
 
-.card-2 {
+.card {
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12)!important;
     width: 150px;
     height: 150px;
@@ -29,4 +29,11 @@
 
 .red-text {
     color: #F44336 !important;
+}
+.meals {
+	width: 300px;
+	margin: 1em;
+	float: left;
+	display: inline-block;
+	padding: 20px;
 }
