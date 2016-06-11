@@ -21,6 +21,7 @@
     <script src="bower_components/three.js/examples/js/renderers/CSS3DRenderer.js"></script>
     <script src="bower_components/lodash/dist/lodash.min.js"></script>
     <script>
+<<<<<<< HEAD
 		Math.randomRange = function(max, min){
 			min = min || 0;
 
@@ -153,6 +154,87 @@
 				renderer.render(scene, camera);
 			});
 		});
+      Math.randomRange = function(max, min){
+        min = min || 0;
+
+        return Math.round(Math.random() * (max - min)) + min;
+      };
+
+      var camera = new THREE.PerspectiveCamera(40, 1.5, 1, 10000);
+      camera.position.z = 3000;
+
+      var scene = new THREE.Scene();
+
+      var assigned = {
+        'physical_education': {
+          icon: 'mdi mdi-dribble red-text',
+          text: '체육'
+        }
+      };
+
+      var cards = {
+        1: 'physical_education',
+        2: 'physical_education',
+        3: 'physical_education',
+        4: 'physical_education',
+        5: 'physical_education',
+        6: 'physical_education',
+        7: 'physical_education'
+      };
+
+      var cardObjects = [];
+      var moveTarget = [];
+
+      _.forEach(cards, function(v, period){
+        var elem = $(document.createElement('div')).addClass('gg card')
+        .append(
+          $(document.createElement('h2'))
+          .append($(document.createElement('i')).addClass(assigned[v].icon))
+        )
+        .append(
+          $(document.createElement('h7')).text(period + '교시 ' + assigned[v].text)
+        );
+
+        var object = new THREE.CSS3DObject(elem.get(0));
+
+        //Randomize Object position
+        object.position.x = Math.randomRange(-300, 300);
+        object.position.y = Math.randomRange(300, -300);
+        object.position.z = Math.randomRange(-300, 300);
+
+        object.rotateX(Math.randomRange(0, 360));
+        object.rotateY(Math.randomRange(0, 360));
+        object.rotateZ(Math.randomRange(0, 360));
+
+        cardObjects[period] = object;
+        moveTarget[period] = {
+          position: {
+            x: period * 30 //FIXME,
+            y: 50 //FIXME
+          },
+
+          rotation: {
+            x: 0,
+            y : 0,
+            z : 0
+          }
+        };
+
+        renderer = new THREE.CSS3DRenderer();
+        renderer.setSize(600, 400);
+
+        camera.aspect = 1.5;
+        camera.updateProjectionMatrix();
+
+        function animate(){
+          requestAnimationFrame(animate);
+        }
+
+        $(document).ready(function(){
+          $('.timetable').append(renderer.domElement);
+          renderer.render(scene, camera);
+        });
+      });
     </script>
   </head>
   <body>
@@ -260,6 +342,7 @@
             </a>
         </li>
       </ul>
+
       <div class="row grid timetable">
         <div class="gg card">
           <h2><i class="mdi mdi-dribbble physical_edu"></i></h2>
@@ -297,15 +380,15 @@
         </div>
       </div>
     </main>
-    <main class="section">
+
+    <main class="section" style="height: 350px">
       <ul class="list-group meals">
-        <h6><i class="mdi mdi-beer"></i>
+        <h6><i class="mdi mdi-beer"></i></h6>
         <span class="breadcrumb">
           <li><a href="#">아침</a></li>
           <li><a href="#">점심</a></li>
           <li class="active">저녁</li>
         </span>
-      </h6>
         <li class="list-group-item">
           <span class="badge">난류</span>
           계에에란
@@ -324,6 +407,20 @@
         </li>
       </ul>
     </main>
-    <script src="bower_components/flat-ui/dist/js/flat-ui.js"></script>
+
+    <div class"footer">
+      <div class="container">
+        <div class="row-container warp">
+          <div class="col col-sm-11.5 credit" style="margin: 0 auto; text-align:center;">
+            <img class="img-circle" src="img/team-railgun.png">
+            <h5>
+              Project Lev6 <p>copyright(C) Team-railgun<p>
+            </h5>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/semantic/dist/semantic.min.js"></script>
   </body>
 </html>
