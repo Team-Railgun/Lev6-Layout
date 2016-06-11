@@ -1,6 +1,6 @@
 .grid {
-	width: 100%;
-	text-align: center;
+  width: 100%;
+  text-align: center;
 }
 
 .gg h2 {
@@ -27,13 +27,60 @@
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)!important
 }*/
 
-.red-text {
+
+/* cards color */
+.physical_edu {
     color: #F44336 !important;
 }
+
+.korean_edu {
+    color: #ffa000 !important;
+}
+
+.mathematics_edu {
+    color: #1E88E5 !important;
+}
+
+.science_edu {
+    color: #4db6ac !important;
+}
+
+.english_edu {
+    color: #4fc3f7 !important;
+}
+
+.history_edu {
+    color: #5e35b1 !important;
+}
+
+.informatin_edu {
+    color: #0097a7 !important;
+}
+
+.art_edu {
+    color: #ff7043 !important;
+}
+
+.music_edu {
+    color: ffeb3b !important
+}
+
+.career_edu {
+    color: #5d4037 !important;
+}
+
+.invention_edu {
+    color: #607d8b !important;
+}
+
+.club_edu {
+    color: #e91e63 !important;
+}
+
 .meals {
-	width: 300px;
-	margin: 1em;
-	float: left;
-	display: inline-block;
-	padding: 20px;
+  width: 300px;
+  margin: 1em;
+  float: left;
+  display: inline-block;
+  padding: 20px;
 }

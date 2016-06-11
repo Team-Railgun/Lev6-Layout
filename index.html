@@ -23,6 +23,7 @@
     <script src="bower_components/three.js/examples/js/libs/tween.min.js"></script>
     <script src="bower_components/three.js/examples/js/renderers/CSS3DRenderer.js"></script>
     <script src="bower_components/lodash/dist/lodash.min.js"></script>
+    <script src="./assigned.js"></script>
     <script>
       Math.randomRange = function(max, min){
         min = min || 0;
@@ -40,35 +41,42 @@
       var renderer = new THREE.CSS3DRenderer();
       renderer.setSize(600, 400);
 
-      var assigned = {
-        'physical_education': {
-          icon: 'mdi mdi-dribbble red-text',
-          text: '체육'
-        }
-      };
+      //name$append : 템플릿 'name'을 사용하며, 이름 뒤에 'append'를 붙임
+      //name#replace: 템플릿 'name'을 사용하며, 이름이 'replace'로 출력됨
 
       var cards = {
-        1: 'physical_education',
-        2: 'physical_education',
-        3: 'physical_education',
-        4: 'physical_education',
-        5: 'physical_education',
-        6: 'physical_education',
-        7: 'physical_education'
+        1: 'korean$b',
+        2: 'career',
+        3: 'physics',
+        4: 'english',
+        5: 'mathematics_i',
+        6: 'korean$a',
+        7: 'club#학급'
       };
 
-      var cardObjects = [];
-      var moveTarget = [];
+      var cardObjects = {};
+      var moveTarget = {};
       var animateDuration = 2000;
 
       _.forEach(cards, function(v, period){
+        var match = v.match(/^([^\s$#]+)(?:(\$|#)([^]+))?$/);
+        if(match){
+          v = match[1];
+        }
+
+        var text = assigned[v].text;
+
+        if(match && match[2] && match[3]){
+          text = (match[2] === '$') ? text + match[3] : match[3];
+        }
+
         var elem = $(document.createElement('div')).addClass('gg card')
           .append(
             $(document.createElement('h2'))
               .append($(document.createElement('i')).addClass(assigned[v].icon))
           )
           .append(
-            $(document.createElement('h7')).text(period + '교시 ' + assigned[v].text)
+            $(document.createElement('h7')).text(period + '교시 ' + text)
           );
 
         var object = new THREE.CSS3DObject(elem.get(0));
@@ -107,8 +115,7 @@
 
       function startAnimation(){
         TWEEN.removeAll();
-        Object.keys(cardObjects).forEach(function(k){
-          var object = cardObjects[k];
+        _.forEach(cardObjects, function(object, k){
           var target = moveTarget[k];
 
           new TWEEN.Tween(object.position)
@@ -250,7 +257,6 @@
       </ul>
 
       <div class="row grid timetable">
-
       </div>
     </main>
 
@@ -263,20 +269,18 @@
           <li class="active">저녁</li>
         </span>
         <li class="list-group-item">
-          <span class="badge">난류</span>
-          계에에란
+          콩나물
         </li>
         <li class="list-group-item">
-          <span class="badge">난류</span>
-          계에에란
+          <span class="badge">콩류</span>
+          콩자반
         </li>
         <li class="list-group-item">
-          <span class="badge">난류</span>
-          계에에란
+          <span class="badge">콩류</span>
+          콩밥
         </li>
         <li class="list-group-item">
-          <span class="badge">난류</span>
-          계에에란
+          콩나물국
         </li>
       </ul>
     </main>
