@@ -115,9 +115,10 @@ function writeMoveTarget(){
   _.forEach(cards, function(v, period){
     var cardX = (period - 1) % Math.floor(cardsPerRow);
     var cardY = Math.floor((period - 1) / Math.floor(cardsPerRow));
+    var parentWidth = parseInt(window.getComputedStyle(parent).width.replace(/[^0-9\.]/g, ''))
     moveTarget[period] = {
       position: {
-        x: ((cardX) * cardWidth) - ((cardsPerRow + 1) * cardWidth / 2),
+        x: ((cardX) * cardWidth) - ((cardsPerRow + 1) * cardWidth / 2)  - (parentWidth - 640) / 4,
         y: (((cardsRow - 1) / 2) - cardY) * (cardHeight / 2),
         z: cardZ
       },
@@ -139,7 +140,7 @@ function update(){
   camera.updateProjectionMatrix();
   renderer.setSize(width, height);
 
-  cardsPerRow = width * 2 / cardWidth;
+  cardsPerRow = width / (cardWidth / 2.24);
   if(cardsPerRow < 1) cardsPerRow = 1;
 
   cardsRow = Math.ceil(Object.keys(cards).length / cardsPerRow);
