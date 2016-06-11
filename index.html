@@ -33,61 +33,71 @@
     <script src="js/time.js"></script>
   </head>
   <body>
-    <nav class="ui inverted menu" role="navigation">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-9">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand">
-          <i class="mdi mdi-calendar-today"></i>
-          <span>Lev6</span>
-        </a>
-      </div>
+    <div class="ui grid">
+      <div class="tablet computer only row">
+        <nav class="ui inverted fixed menu navbar" role="navigation">
+          <a class="brand item">
+            <i class="mdi mdi-calendar-today"></i>
+            <span>Lev6</span>
+          </a>
 
-      <div class="navbar-collapse collapse" id="navbar-collapse-9">
-        <ul class="nav navbar-nav">
-          <li>
-            <a href="http://seogwipo.hs.kr" target="_blank">
-              <i class="mdi mdi-school"></i>
-              <span>서귀포고</span>
-            </a>
-          </li>
-          <li class="active">
-            <a href="issue">
-              <i class="mdi mdi-flag"></i>
-              <span>문의</span>
-            </a>
-          </li>
-          <li>
-            <a>
-              <i class="mdi mdi-clock"></i>
-              <span id ='time'></span>
-            </a>
-          </li>
-        </ul>
+          <a class="item" href="http://seogwipo.hs.kr" target="_blank">
+            <i class="mdi mdi-school"></i>
+            <span>제주 서귀포 고등학교</span>
+          </a>
 
-        <form class="navbar-form navbar-right visible-lg" role="form">
-          <div class="form-group">
-            <input type="text" placeholder="Email" class="form-control">
-            <input type="password" placeholder="Password" class="form-control">
+          <a class="item" href="/issue">
+            <i class="mdi mdi-flag"></i>
+            <span>문의</span>
+          </a>
+
+          <form class="right menu desktop-only">
+            <div class="item">
+              <div class="ui input">
+                <input type="text" placeholder="Email">
+              </div>
+            </div>
+
+            <div class="item borderless">
+              <div class="ui input">
+                <input type="password" placeholder="Password" class="form-control">
+              </div>
+            </div>
+
+            <div class="item borderless">
+              <button type="submit" class="ui button">
+                <i class="mdi mdi-account"></i>
+                <span>로그인</sapn>
+              </button>
+            </div>
+          </form>
+
+          <div class="right menu tablet-only">
+            <div class="item">
+              <a class="ui button" href="/login">
+                <i class="mdi mdi-account"></i>
+                로그인
+              </a>
+            </div>
           </div>
-          <button type="submit" class="btn btn-primary">
-            <i class="mdi mdi-account"></i>
-            <span>로그인</sapn>
-          </button>
-        </form>
-
-        <div class="navbar-right navbar-form hidden-lg">
-          <button class="btn btn-primary" href="#!">
-            <i class="mdi mdi-account"></i>
-            로그인
-          </button>
-        </div>
+        </nav>
       </div>
-    </nav>
+
+      <div class="mobile only narrow row">
+        <nav class="ui inverted fixed menu navbar">
+          <a class="brand item">
+            <i class="mdi mdi-calendar-today"></i>
+            <span>Lev6</span>
+          </a>
+
+          <div class="right menu">
+            <a href="#" class="item">
+              <i class="mdi mdi-menu"></i>
+            </a>
+          </div>
+        </nav>
+      </div>
+    </div>
 
     <main class="section bg" id ="top">
       <ul class="nav nav-tabs">
