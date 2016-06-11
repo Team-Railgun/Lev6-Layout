@@ -6,152 +6,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <title>Lev6</title>
 
-    <!-- flat-ui -->
-    <link rel="stylesheet" charset="utf-8" href="bower_components/flat-ui/dist/css/vendor/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" charset="utf-8" href="bower_components/flat-ui/dist/css/flat-ui.css" rel="stylesheet">
+    <!-- jQuery -->
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
 
-    <!-- common, index etc.. -->
-    <link rel="stylesheet" href="css/common.css">
-    <link rel="stylesheet" href="css/index.css">
-    <link rel="stylesheet" href="css/table.css">
+    <!-- lodash -->
+    <script src="bower_components/lodash/dist/lodash.min.js"></script>
 
-    <!-- icon font -->
-    <link href="http://cdn.materialdesignicons.com/1.6.50/css/materialdesignicons.min.css" media="all" rel="stylesheet">
+    <!-- semantic-ui -->
+    <link href="bower_components/semantic/dist/semantic.min.css" rel="stylesheet">
+    <script src="bower_components/semantic/dist/semantic.min.js"></script>
 
-    <script src="bower_components/flat-ui/dist/js/vendor/jquery.min.js"></script>
+    <!-- mdi -->
+    <link href="bower_components/mdi/css/materialdesignicons.min.css" media="all" rel="stylesheet">
+
+    <!-- three.js -->
     <script src="bower_components/three.js/build/three.min.js"></script>
     <script src="bower_components/three.js/examples/js/libs/tween.min.js"></script>
     <script src="bower_components/three.js/examples/js/renderers/CSS3DRenderer.js"></script>
-    <script src="bower_components/lodash/dist/lodash.min.js"></script>
-    <script src="./assigned.js"></script>
-    <script>
-      Math.randomRange = function(max, min){
-        min = min || 0;
 
-        return Math.round(Math.random() * (max - min)) + min;
-      };
-
-      var camera = new THREE.PerspectiveCamera(40, 1.5, 1, 1000);
-      camera.position.z = 600;
-      camera.aspect = 1.5;
-      camera.updateProjectionMatrix();
-
-      var scene = new THREE.Scene();
-
-      var renderer = new THREE.CSS3DRenderer();
-      renderer.setSize(600, 400);
-
-      //name$append : 템플릿 'name'을 사용하며, 이름 뒤에 'append'를 붙임
-      //name#replace: 템플릿 'name'을 사용하며, 이름이 'replace'로 출력됨
-
-      var cards = {
-        1: 'korean$b',
-        2: 'career',
-        3: 'physics',
-        4: 'english',
-        5: 'mathematics_i',
-        6: 'korean$a',
-        7: 'club#학급'
-      };
-
-      var cardObjects = {};
-      var moveTarget = {};
-      var animateDuration = 2000;
-
-      _.forEach(cards, function(v, period){
-        var match = v.match(/^([^\s$#]+)(?:(\$|#)([^]+))?$/);
-        if(match){
-          v = match[1];
-        }
-
-        var text = assigned[v].text;
-
-        if(match && match[2] && match[3]){
-          text = (match[2] === '$') ? text + match[3] : match[3];
-        }
-
-        var elem = $(document.createElement('div')).addClass('gg card')
-          .append(
-            $(document.createElement('h2'))
-              .append($(document.createElement('i')).addClass(assigned[v].icon))
-          )
-          .append(
-            $(document.createElement('h7')).text(period + '교시 ' + text)
-          );
-
-        var object = new THREE.CSS3DObject(elem.get(0));
-
-        //Randomize Object position
-        object.position.x = Math.randomRange(-300, 300);
-        object.position.y = Math.randomRange(300, -300);
-        object.position.z = Math.randomRange(-300, 300);
-
-        object.rotateX(Math.randomRange(0, 360));
-        object.rotateY(Math.randomRange(0, 360));
-        object.rotateZ(Math.randomRange(0, 360));
-
-        cardObjects[period] = object;
-        moveTarget[period] = {
-          position: {
-            x: period * 200 - 750, //FIXME
-            y: 0, //FIXME
-            z: 0
-          },
-
-          rotation: {
-            x: 0,
-            y : 0,
-            z : 0
-          }
-        };
-
-        scene.add(object);
-      });
-
-      function animate(){
-        requestAnimationFrame(animate);
-        TWEEN.update();
-      }
-
-      function startAnimation(){
-        TWEEN.removeAll();
-        _.forEach(cardObjects, function(object, k){
-          var target = moveTarget[k];
-
-          new TWEEN.Tween(object.position)
-            .to(target.position, animateDuration)
-            .easing(TWEEN.Easing.Quintic.In)
-            .start();
-
-          new TWEEN.Tween(object.rotation)
-            .to(target.rotation, animateDuration)
-            .easing(TWEEN.Easing.Quintic.In)
-            .start();
-        });
-
-        new TWEEN.Tween(this)
-          .to({}, animateDuration)
-          .onUpdate(function(){
-            console.log("Tweening");
-            renderer.render(scene, camera);
-          })
-          .start();
-      }
-
-      animate();
-
-      $(document).ready(function(){
-        var renderView = $(renderer.domElement);
-        renderView.css({
-          width: '100%'
-        });
-        $('.timetable').append(renderView);
-        startAnimation();
-      });
-    </script>
+    <!-- common, index etc.. -->
+    <link href="css/common.css" rel="stylesheet">
+    <link href="css/index.css" rel="stylesheet">
+    <link href="css/table.css" rel="stylesheet">
+    <script src="js/assigned.js"></script>
+    <script src="js/render.js"></script>
+    <script src="js/time.js"></script>
   </head>
   <body>
-    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <nav class="ui inverted menu" role="navigation">
       <div class="navbar-header">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-9">
           <span class="sr-only">Toggle navigation</span>
@@ -186,32 +68,6 @@
             </a>
           </li>
         </ul>
-
-        <script type="text/javascript">
-          function startTime() {
-            var today = new Date();
-            var h = today.getHours();
-            var m = today.getMinutes();
-            var s = today.getSeconds();
-
-            m = checkTime(m);
-            s = checkTime(s);
-            document.getElementById("time").innerHTML = h + ":" + m;
-            setTimeout(function () {
-              startTime()
-            }, 500);
-          }
-
-          // 10보다 작을때 앞에 0 생성
-          function checkTime(i) {
-            if (i < 10) {
-              i = "0" + i;
-            }
-            return i;
-          }
-
-          startTime();
-        </script>
 
         <form class="navbar-form navbar-right visible-lg" role="form">
           <div class="form-group">
@@ -261,28 +117,28 @@
     </main>
 
     <main class="section" style="height: 350px">
-      <ul class="list-group meals">
-        <h6><i class="mdi mdi-beer"></i></h6>
-        <span class="breadcrumb">
-          <li><a href="#">아침</a></li>
-          <li><a href="#">점심</a></li>
-          <li class="active">저녁</li>
-        </span>
-        <li class="list-group-item">
+      <div class="ui vertical menu meals">
+        <h3><i class="mdi mdi-beer"></i></h3>
+        <div class="ui tabular menu">
+          <a class="item" href="#">아침</a>
+          <a class="item" href="#">점심</a>
+          <a class="active item">저녁</a>
+        </div>
+        <a class="item">
           콩나물
         </li>
-        <li class="list-group-item">
-          <span class="badge">콩류</span>
+        <a class="item">
+          <div class="ui label">콩류</div>
           콩자반
-        </li>
-        <li class="list-group-item">
-          <span class="badge">콩류</span>
+        </a>
+        <a class="item">
+          <div class="ui label">콩류</div>
           콩밥
-        </li>
-        <li class="list-group-item">
+        </a>
+        <a class="item">
           콩나물국
-        </li>
-      </ul>
+        </a>
+      </div>
     </main>
 
     <div class"footer">
@@ -297,6 +153,5 @@
         </div>
       </div>
     </div>
-    <script src="bower_components/flat-ui/dist/js/flat-ui.js"></script>
   </body>
 </html>
