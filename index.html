@@ -31,9 +31,29 @@
     <script src="js/assigned.js"></script>
     <script src="js/render.js"></script>
     <script src="js/time.js"></script>
+    <script src="js/ui.js"></script>
   </head>
   <body>
-    <div class="ui grid">
+    <div id="mobile-menu" class="ui sidebar inverted vertical menu">
+      <a class="item" href="http://seogwipo.hs.kr" target="_blank">
+        <i class="mdi mdi-school"></i>
+        <span>제주 서귀포 고등학교</span>
+      </a>
+
+      <a class="item" href="/issue">
+        <i class="mdi mdi-flag"></i>
+        <span>문의</span>
+      </a>
+
+      <div class="item">
+        <a class="ui button" href="/login">
+          <i class="mdi mdi-account"></i>
+          로그인
+        </a>
+      </div>
+    </div>
+
+    <div class="ui grid page pusher">
       <div class="tablet computer only row">
         <nav class="ui inverted fixed menu navbar" role="navigation">
           <a class="brand item">
@@ -91,74 +111,71 @@
           </a>
 
           <div class="right menu">
-            <a href="#" class="item">
+            <a href="#" class="item" onclick="return openSide()">
               <i class="mdi mdi-menu"></i>
             </a>
           </div>
         </nav>
       </div>
-    </div>
 
-    <main class="section bg" id ="top">
-      <ul class="nav nav-tabs">
-        <li role="presentation" class="active">
-          <a href="#1grade">
+      <main class="row section bg" id="top">
+        <div class="ui tabular menu">
+          <a href="#1grade" class="active item" role="presentation">
             <i class="mdi mdi-face"></i>
             <span>1학년</span>
-            <span class="sr-only"> (current)</span>
           </a>
-        </li>
-        <li role="presentation">
-          <a href="#2grade">
-            <i class="mdi mdi-face"></i>
-            <span>2학년<span>
+
+          <a href="#2grade" class="item" role="presentation">
+              <i class="mdi mdi-face"></i>
+              <span>2학년<span>
+            </a>
           </a>
-        </li>
-        <li role="presentation">
-          <a href="#3grade">
+
+          <a href="#3grade" class="item" role="presentation">
             <i class="mdi mdi-face"></i>
               <span>3학년</span>
-            </a>
-        </li>
-      </ul>
-
-      <div class="row grid timetable">
-      </div>
-    </main>
-
-    <main class="section" style="height: 350px">
-      <div class="ui vertical menu meals">
-        <h3><i class="mdi mdi-beer"></i></h3>
-        <div class="ui tabular menu">
-          <a class="item" href="#">아침</a>
-          <a class="item" href="#">점심</a>
-          <a class="active item">저녁</a>
+          </a>
         </div>
-        <a class="item">
-          콩나물
-        </li>
-        <a class="item">
-          <div class="ui label">콩류</div>
-          콩자반
-        </a>
-        <a class="item">
-          <div class="ui label">콩류</div>
-          콩밥
-        </a>
-        <a class="item">
-          콩나물국
-        </a>
-      </div>
-    </main>
 
-    <div class"footer">
+        <div class="row grid timetable">
+        </div>
+      </main>
+
+      <main class="row section" style="height: 350px">
+        <div class="ui vertical menu meals">
+          <h3><i class="mdi mdi-beer"></i></h3>
+          <div class="ui tabular menu">
+            <a class="item" href="#">아침</a>
+            <a class="item" href="#">점심</a>
+            <a class="active item">저녁</a>
+          </div>
+          <a class="item">
+            콩나물
+          </li>
+          <a class="item">
+            <div class="ui label">콩류</div>
+            콩자반
+          </a>
+          <a class="item">
+            <div class="ui label">콩류</div>
+            콩밥
+          </a>
+          <a class="item">
+            콩나물국
+          </a>
+        </div>
+      </main>
+    </div>
+
+    <div class="footer">
       <div class="container">
         <div class="row-container warp">
           <div class="col col-sm-12 credit" style="margin: 0 auto; text-align:center;">
-            <img class="img-circle" src="img/team-railgun.png">
-            <h5>
-              Project Lev6 <p>copyright(C) Team-railgun<p>
-            </h5>
+            <img class="img-circle" src="img/team-railgun.png" style="width: 128px">
+            <p>
+              <h5>Project Lev6</h5>
+              copyright(C) Team-railgun
+            </p>
           </div>
         </div>
       </div>

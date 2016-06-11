@@ -15,12 +15,19 @@
 
 .card {
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12)!important;
-    width: 150px;
-    height: 150px;
+    width: 300px;
+    height: 300px;
     margin: 1em;
     padding: 16px;
     display: inline-block;
-    flot: left;
+}
+
+.card h2 i.mdi{
+  font-size: 70px !important;
+}
+.card h3 {
+  margin-top: 50px;
+  font-size: 40px !important;
 }
 
 /*.card-4 {
@@ -75,6 +82,10 @@
 
 .club_edu {
     color: #e91e63 !important;
+}
+
+i[class$=edu] {
+  font-size: 30px;
 }
 
 .meals {

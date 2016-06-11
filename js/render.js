@@ -4,15 +4,13 @@ Math.randomRange = function(max, min){
   return Math.round(Math.random() * (max - min)) + min;
 };
 
-var camera = new THREE.PerspectiveCamera(40, 1.5, 1, 1000);
-camera.position.z = 600;
-camera.aspect = 1.5;
-camera.updateProjectionMatrix();
+var parent;
+var camera = new THREE.PerspectiveCamera(40, 1.5, 1, 10000);
+camera.position.y = 0;
+camera.position.z = 3000;
 
 var scene = new THREE.Scene();
-
 var renderer = new THREE.CSS3DRenderer();
-renderer.setSize(600, 400);
 
 //name$append : 템플릿 'name'을 사용하며, 이름 뒤에 'append'를 붙임
 //name#replace: 템플릿 'name'을 사용하며, 이름이 'replace'로 출력됨
@@ -24,62 +22,23 @@ var cards = {
   4: 'english',
   5: 'mathematics_i',
   6: 'korean$a',
-  7: 'club#학급'
+  7: 'club#학급',
+  8: 'club#학급',
+  9: 'club#학급'
 };
 
 var cardObjects = {};
 var moveTarget = {};
 var animateDuration = 2000;
 
-_.forEach(cards, function(v, period){
-  var match = v.match(/^([^\s$#]+)(?:(\$|#)([^]+))?$/);
-  if(match){
-    v = match[1];
-  }
+var width = undefined;
+var height = undefined;
 
-  var text = assigned[v].text;
-
-  if(match && match[2] && match[3]){
-    text = (match[2] === '$') ? text + match[3] : match[3];
-  }
-
-  var elem = $(document.createElement('div')).addClass('gg card')
-    .append(
-      $(document.createElement('h2'))
-        .append($(document.createElement('i')).addClass(assigned[v].icon))
-    )
-    .append(
-      $(document.createElement('h7')).text(period + '교시 ' + text)
-    );
-
-  var object = new THREE.CSS3DObject(elem.get(0));
-
-  //Randomize Object position
-  object.position.x = Math.randomRange(-300, 300);
-  object.position.y = Math.randomRange(300, -300);
-  object.position.z = Math.randomRange(-300, 300);
-
-  object.rotateX(Math.randomRange(0, 360));
-  object.rotateY(Math.randomRange(0, 360));
-  object.rotateZ(Math.randomRange(0, 360));
-
-  cardObjects[period] = object;
-  moveTarget[period] = {
-    position: {
-      x: period * 200 - 750, //FIXME
-      y: 0, //FIXME
-      z: 0
-    },
-
-    rotation: {
-      x: 0,
-      y : 0,
-      z : 0
-    }
-  };
-
-  scene.add(object);
-});
+var cardWidth = 300;
+var cardHeight = 600;
+var cardsPerRow = undefined;
+var cardsRow = undefined;
+var cardZ = 1000;
 
 function animate(){
   requestAnimationFrame(animate);
@@ -105,19 +64,103 @@ function startAnimation(){
   new TWEEN.Tween(this)
     .to({}, animateDuration)
     .onUpdate(function(){
-      console.log("Tweening");
       renderer.render(scene, camera);
     })
     .start();
 }
 
+function addCards(){
+  _.forEach(cards, function(v, period){
+    var match = v.match(/^([^\s$#]+)(?:(\$|#)([^]+))?$/);
+    if(match){
+      v = match[1];
+    }
+
+    var text = assigned[v].text;
+
+    if(match && match[2] && match[3]){
+      text = (match[2] === '$') ? text + match[3] : match[3];
+    }
+
+    var elem = $(document.createElement('div')).addClass('gg card')
+      .append(
+        $(document.createElement('h2'))
+          .append($(document.createElement('i')).addClass(assigned[v].icon))
+      )
+      .append(
+        $(document.createElement('h3')).text(period + '교시 ' + text)
+      );
+
+    var object = new THREE.CSS3DObject(elem.get(0));
+
+    //Randomize Object position
+    object.position.x = Math.randomRange(-300, 300);
+    object.position.y = Math.randomRange(300, -300);
+    object.position.z = Math.randomRange(-300, 300);
+
+    object.rotateX(Math.randomRange(0, 360));
+    object.rotateY(Math.randomRange(0, 360));
+    object.rotateZ(Math.randomRange(0, 360));
+
+    var cardX = (period - 1) % cardsPerRow;
+    var cardY = Math.floor((period - 1) / cardsPerRow);
+
+    cardObjects[period] = object;
+
+    scene.add(object);
+  });
+}
+
+function writeMoveTarget(){
+  _.forEach(cards, function(v, period){
+    var cardX = (period - 1) % Math.floor(cardsPerRow);
+    var cardY = Math.floor((period - 1) / Math.floor(cardsPerRow));
+    moveTarget[period] = {
+      position: {
+        x: ((cardX) * cardWidth) - ((cardsPerRow + 1) * cardWidth / 2),
+        y: (((cardsRow - 1) / 2) - cardY) * (cardHeight / 2),
+        z: cardZ
+      },
+
+      rotation: {
+        x: 0,
+        y: 0,
+        z: 0
+      }
+    };
+  });
+}
+
+function update(){
+  width = parseInt(window.getComputedStyle(parent).width.replace(/[^0-9\.]/g, ''));
+  height = 600;
+
+  camera.aspect = width / height;
+  camera.updateProjectionMatrix();
+  renderer.setSize(width, height);
+
+  cardsPerRow = width * 2 / cardWidth;
+  if(cardsPerRow < 1) cardsPerRow = 1;
+
+  cardsRow = Math.ceil(Object.keys(cards).length / cardsPerRow);
+  writeMoveTarget();
+}
+
+function resize(){
+  update();
+  startAnimation();
+}
+
 animate();
 
 $(document).ready(function(){
+  parent = $('#top').get(0);
+  update();
+  addCards();
+
   var renderView = $(renderer.domElement);
-  renderView.css({
-    width: '100%'
-  });
   $('.timetable').append(renderView);
   startAnimation();
 });
+
+$(window).resize(resize);
