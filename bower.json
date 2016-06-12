@@ -13,6 +13,7 @@
     "three.js": "threejs#*",
     "lodash": "^4.13.1",
     "semantic": "semantic-ui#^2.1.8",
-    "mdi": "^1.6.50"
+    "mdi": "^1.6.50",
+    "octicons": "*"
   }
 }
