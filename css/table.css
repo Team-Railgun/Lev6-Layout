@@ -14,7 +14,8 @@
 
 
 .card {
-    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12)!important;
+    /*box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12)!important;*/ /* 작은 그림자 */
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)!important; /* 깊은 그림자 */
     width: 300px;
     height: 300px;
     margin: 1em;
@@ -93,6 +94,9 @@ i[class$=edu] {
   .meals {
     margin: 0 auto !important;
   }
+  .calendar {
+    margin: 0 auto !important;
+  }
   /*.facebook{
     margin: 0 auto!important;
   }*/
@@ -101,9 +105,16 @@ i[class$=edu] {
 .meals {
   width: 300px;
   margin: 1em;
-  float: left;
   display: inline-block;
   padding: 20px;
+}
+
+.calendar {
+  width: 250px !important;
+  height: auto;
+  margin: 1em;
+  height: auto;
+  display: inline-block;
 }
 
 /*.facebook {

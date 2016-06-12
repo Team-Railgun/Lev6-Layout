@@ -23,8 +23,7 @@ var cards = {
   5: 'mathematics_i',
   6: 'korean$a',
   7: 'club#학급',
-  8: 'club#학급',
-  9: 'club#학급'
+  8: 'club#학급'
 };
 
 var cardObjects = {};

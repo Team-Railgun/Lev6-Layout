@@ -24,6 +24,9 @@
     <script src="bower_components/three.js/examples/js/libs/tween.min.js"></script>
     <script src="bower_components/three.js/examples/js/renderers/CSS3DRenderer.js"></script>
 
+    <!-- octicons -->
+    <link rel="stylesheet" href="bower_components/octicons/octicons/octicons.css">
+
     <!-- common, index etc.. -->
     <link href="css/common.css" rel="stylesheet">
     <link href="css/index.css" rel="stylesheet">
@@ -34,6 +37,7 @@
     <script src="js/ui.js"></script>
   </head>
   <body>
+<!--헤더 시작 -->
     <div id="mobile-menu" class="ui sidebar vertical menu">
       <a class="item" href="http://seogwipo.hs.kr" target="_blank">
         <i class="mdi mdi-school"></i>
@@ -56,27 +60,37 @@
       </div>
     </div>
     <div class="item">
+    <h3 class="ui header">로그인</h3>
+  </div>
+    <div class="item">
       <a class="ui blue button" href="/login">
-        <i class="mdi mdi-account"></i>
-        로그인
+        <i class="mdi mdi-email"></i>
+        이메일
       </a>
     </div>
+    <div class="item">
+      <button class="ui facebook button">
+        <i class="mdi mdi-facebook"></i>
+        페이스북
+      </button>
+  </div>
   </div>
 
     <div class="ui grid page pusher">
       <div class="tablet computer only row">
         <nav class="ui fixed menu navbar" role="navigation">
-          <a class="brand blue item active">
-            <i class="mdi mdi-calendar-today"></i>
-            <span>Lev6</span>
+          <a class="brand blue item">
+            <!-- <i class="mdi mdi-black-mesa"></i> -->
+            <img src="img/team-railgun.png" style="width:35px; height:auto" alt="내가 생각해도 팀-레일건 우승 할 듯 인정? 어 인정" title="팀레일건/Lev6 심볼">
+            <!-- <span>Lev6</span> -->
           </a>
 
           <a class="item" href="http://seogwipo.hs.kr" target="_blank">
             <i class="mdi mdi-school"></i>
-            <span>제주 서귀포 고등학교</span>
+            <span>제주 서귀포고등학교</span>
           </a>
 
-          <a class="red item active" href="/issue">
+          <a class="item" href="/issue">
             <i class="mdi mdi-flag"></i>
             <span>문의</span>
           </a>
@@ -114,10 +128,9 @@
       </div>
 
       <div class="mobile only narrow row">
-        <nav class="ui inverted fixed menu navbar">
-          <a class="brand blue item active">
-            <i class="mdi mdi-calendar-today"></i>
-            <span>Lev6</span>
+        <nav class="ui fixed menu navbar">
+          <a class="brand item">
+            <img src="img/team-railgun.png" style="width:35px; height:auto" alt="내가 생각해도 팀-레일건 우승 할 듯 인정? 어 인정" title="팀레일건/Lev6 심볼">
           </a>
 
           <div class="right menu">
@@ -127,8 +140,15 @@
           </div>
         </nav>
       </div>
+<!--헤더 끝 -->
       <main class="section row bg" id="top">
-        <div class="ui tabular menu">
+        <div class="ui top attached tabular menu" style="margin-left:1.5em">
+          <h2 class="ui header" style="margin-right:5px">
+            <i class="mdi mdi-bulletin-board"></i>
+            <div class="content">
+              수업 시간표
+            </div>
+          </h2>
           <a href="#1grade" class="active item" role="presentation">
             <i class="mdi mdi-face"></i>
             <span>1학년</span>
@@ -144,12 +164,20 @@
             <i class="mdi mdi-face"></i>
               <span>3학년</span>
           </a>
+          <!-- tabular : http://semantic-ui.com/collections/menu.html#tabular -->
+          <!-- </div>
+          <div class="ui bottom attached segment"> -->
         </div>
-
         <div class="row grid timetable">
         </div>
       </main>
-
+      <h2 class="ui icon header" style="margin:0 auto; margin-bottom:5px">
+        <i class="mdi mdi-bullhorn"></i>
+        <div class="content">
+          여러 소식들
+          <div class="sub header">장비를 정지합니다. 정지하겠습니다.</div>
+        </div>
+      </h2>
       <main class="row section main_two" style="height: 350px">
         <div class="ui vertical menu meals">
           <h3><i class="mdi mdi-beer" style="padding:1px"></i>오늘의 급식</h3>
@@ -173,14 +201,39 @@
             콩나물국
           </a>
         </div>
+        <table class="ui celled table calendar">
+          <thead>
+            <tr><th>날짜</th>
+              <th>일정</th>
+            </tr></thead>
+        <tbody>
+          <tr>
+            <td>06/14</td>
+            <td>결핵예방교육</td>
+          </tr><tr>
+            <td>06/15</td>
+            <td>넷마블견학프로그램</td>
+          </tr><tr>
+            <td>06/16</td>
+            <td>숭실대 입학사정관 본교 방문</td>
+          </tr><tr>
+            <td>06/16</td>
+            <td>소방합동훈련</td>
+          </tr><tr>
+            <td>06/16</td>
+            <td>산학협력식</td>
+          </tr>
+        </tbody>
+      </table>
       </main>
     </div>
 
     <div class="footer">
       <div class="container">
+        <!-- style="float:right; margin-right:4em" -->
         <div class="row-container warp">
           <div class="credit">
-              <h5>Project Lev6</h5>
+              <h5>Project Lev6 <img src="img/team-railgun.png" style="width:1em; height:auto"></h5>
               <p>copyright(C) Team-railgun</p>
           </div>
         </div>
