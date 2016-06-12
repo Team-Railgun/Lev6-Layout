@@ -93,6 +93,9 @@ i[class$=edu] {
   .meals {
     margin: 0 auto !important;
   }
+  /*.facebook{
+    margin: 0 auto!important;
+  }*/
 }
 
 .meals {
@@ -102,3 +105,9 @@ i[class$=edu] {
   display: inline-block;
   padding: 20px;
 }
+
+/*.facebook {
+  margin: 1em;
+  margin-right: 0;
+  display: inline-block;
+}*/

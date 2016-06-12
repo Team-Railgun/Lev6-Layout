@@ -34,29 +34,39 @@
     <script src="js/ui.js"></script>
   </head>
   <body>
-    <div id="mobile-menu" class="ui sidebar inverted vertical menu">
+    <div id="mobile-menu" class="ui sidebar vertical menu">
       <a class="item" href="http://seogwipo.hs.kr" target="_blank">
         <i class="mdi mdi-school"></i>
         <span>제주 서귀포 고등학교</span>
       </a>
 
-      <a class="item" href="/issue">
+      <a class="red item active">
         <i class="mdi mdi-flag"></i>
-        <span>문의</span>
-      </a>
-
-      <div class="item">
-        <a class="ui button" href="/login">
-          <i class="mdi mdi-account"></i>
-          로그인
-        </a>
+        문의
+    </a>
+    <div class="item">
+      <div class="ui input">
+        <input type="text" placeholder="Email">
       </div>
     </div>
 
+    <div class="item borderless">
+      <div class="ui input">
+        <input type="password" placeholder="Password" class="form-control">
+      </div>
+    </div>
+    <div class="item">
+      <a class="ui blue button" href="/login">
+        <i class="mdi mdi-account"></i>
+        로그인
+      </a>
+    </div>
+  </div>
+
     <div class="ui grid page pusher">
       <div class="tablet computer only row">
-        <nav class="ui inverted fixed menu navbar" role="navigation">
-          <a class="brand item">
+        <nav class="ui fixed menu navbar" role="navigation">
+          <a class="brand blue item active">
             <i class="mdi mdi-calendar-today"></i>
             <span>Lev6</span>
           </a>
@@ -66,7 +76,7 @@
             <span>제주 서귀포 고등학교</span>
           </a>
 
-          <a class="item" href="/issue">
+          <a class="red item active" href="/issue">
             <i class="mdi mdi-flag"></i>
             <span>문의</span>
           </a>
@@ -85,7 +95,7 @@
             </div>
 
             <div class="item borderless">
-              <button type="submit" class="ui button">
+              <button type="submit" class="ui blue button" href="/login">
                 <i class="mdi mdi-account"></i>
                 <span>로그인</sapn>
               </button>
@@ -94,7 +104,7 @@
 
           <div class="right menu tablet-only">
             <div class="item">
-              <a class="ui button" href="/login">
+              <a class="ui blue button" href="/login">
                 <i class="mdi mdi-account"></i>
                 로그인
               </a>
@@ -105,7 +115,7 @@
 
       <div class="mobile only narrow row">
         <nav class="ui inverted fixed menu navbar">
-          <a class="brand item">
+          <a class="brand blue item active">
             <i class="mdi mdi-calendar-today"></i>
             <span>Lev6</span>
           </a>
@@ -117,8 +127,7 @@
           </div>
         </nav>
       </div>
-
-      <main class="row section bg" id="top">
+      <main class="section row bg" id="top">
         <div class="ui tabular menu">
           <a href="#1grade" class="active item" role="presentation">
             <i class="mdi mdi-face"></i>
@@ -141,7 +150,7 @@
         </div>
       </main>
 
-      <main class="row section" style="height: 350px">
+      <main class="row section main_two" style="height: 350px">
         <div class="ui vertical menu meals">
           <h3><i class="mdi mdi-beer" style="padding:1px"></i>오늘의 급식</h3>
           <div class="ui tabular menu">
