@@ -34,8 +34,8 @@ var animateDuration = 2000;
 var width = undefined;
 var height = undefined;
 
-var cardWidth = 300;
-var cardHeight = 600;
+var cardWidth = 350; // default : 300
+var cardHeight = 650; // default : 600
 var cardsPerRow = undefined;
 var cardsRow = undefined;
 var cardZ = 1000;

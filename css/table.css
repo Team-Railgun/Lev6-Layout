@@ -88,10 +88,21 @@ i[class$=edu] {
   font-size: 30px;
 }
 
+/* 콩콩 급식 */
+@media (max-width: 768px ) {
+  .meals {
+    margin: 0 auto !important;
+  }
+}
+
 .meals {
   width: 300px;
   margin: 1em;
   float: left;
   display: inline-block;
   padding: 20px;
+}
+
+#padding_one {
+  padding: 1px
 }
