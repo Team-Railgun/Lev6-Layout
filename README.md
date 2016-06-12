@@ -3,8 +3,8 @@
 
 ## How to run
 ```console
-$ git clone https://github.com/Team-Railgun/Lev6.git
-$ cd project-TimeTable && bower install
+$ git clone https://github.com/Team-Railgun/Lev6-Layout.git
+$ cd Lev6-Layout && bower install
 ```
 
 ## License
