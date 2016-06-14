@@ -24,6 +24,13 @@ var cards = {
   6: 'korean$a',
   7: 'club#학급',
   8: 'club#학급'
+  // 1: 'class_on$1-1',
+  // 2: 'class_on$2-4',
+  // 3: 'class_off',
+  // 4: 'class_off',
+  // 5: 'class_on$3-2',
+  // 6: 'class_off',
+  // 7: 'class_off'
 };
 
 var cardObjects = {};

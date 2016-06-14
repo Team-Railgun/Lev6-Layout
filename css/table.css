@@ -85,6 +85,10 @@
     color: #e91e63 !important;
 }
 
+.meals_time {
+  color: #707070 !important;
+}
+
 i[class$=edu] {
   font-size: 30px;
 }

@@ -127,5 +127,15 @@ var assigned = {
   "club": {
     "icon": "mdi mdi-account-multiple club_edu",
     "text": "동아리"
+  },
+
+  "class_on": {
+    "icon": "mdi mdi-bulletin-board chalkboard",
+    "text": "수업"
+  },
+
+  "class_off": {
+    "icon": "mdi mdi-sofa career_edu",
+    "text": "없음"
   }
 };
