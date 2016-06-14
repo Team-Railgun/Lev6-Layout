@@ -8,14 +8,6 @@
   font-family: 'Ubuntu', 'Roboto', 'Noto Sans KR', sans-serif !important;
 }
 
-/* fixme : 모바일에서 카드 중앙정렬 안되서 margin 써봤는데도 안되는 상태 */
-/*@media (max-width: 768px) {
-  .row {
-    margin: 0 auto !important;
-    text-align: center !important;
-  }
-}*/
-
 .row {
     margin-left: auto;
     margin-right: auto;
@@ -87,6 +79,10 @@
 
 .footer .col {
     padding: 10px 0 20px;
+}
+
+.chalkboard {
+  color: #008000 !important;
 }
 
 /* TODO:오버런 네비계이션 네누 스타일
