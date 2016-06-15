@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="ko">
-  <head>
+
+<head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -36,13 +37,14 @@
     <script src="js/time.js"></script>
     <script src="js/ui.js"></script>
     <script src="js/menu.js"></script>
-  </head>
-  <body>
-<!--헤더 시작 -->
+</head>
+
+<body>
+    <!--헤더 시작 -->
     <div id="mobile-menu" class="ui sidebar vertical menu">
-      <a class="item">
-        <i class="mdi mdi-clock"></i>
-        <span id = "time"><span>
+        <a class="item">
+            <i class="mdi mdi-clock"></i>
+            <span id="time"><span>
       </a>
       <a class="item physical_edu">
         <i class="mdi mdi-flag"></i>
@@ -83,116 +85,117 @@
             <!-- <i class="mdi mdi-black-mesa"></i> -->
             <img src="img/team-railgun.png" style="width:35px; height:auto" title="팀레일건/Lev6 심볼">
             <!-- <span>Lev6</span> -->
-          </a>
+        </a>
 
-          <a class="item" href="http://seogwipo.hs.kr" target="_blank">
+        <a class="item" href="http://seogwipo.hs.kr" target="_blank">
             <i class="mdi mdi-school"></i>
             <span>제주 서귀포고등학교</span>
-          </a>
+        </a>
 
-          <a class="item">
+        <a class="item">
             <i class="mdi mdi-clock"></i>
-            <span id = "time"><span>
+            <span id="time"><span>
           </a>
 
           <a class="item physical_edu" href="/issue">
             <i class="mdi mdi-flag"></i>
             <span>문의</span>
-          </a>
+        </a>
 
-          <form class="right menu desktop-only">
+        <form class="right menu desktop-only">
             <div class="item">
-              <div class="ui input">
-                <input type="text" placeholder="Email">
-              </div>
+                <div class="ui input">
+                    <input type="text" placeholder="Email">
+                </div>
             </div>
 
             <div class="item borderless">
-              <div class="ui input">
-                <input type="password" placeholder="Password" class="form-control">
-              </div>
+                <div class="ui input">
+                    <input type="password" placeholder="Password" class="form-control">
+                </div>
             </div>
 
             <div class="item borderless">
-              <button type="submit" class="ui blue button" href="/login">
+                <button type="submit" class="ui blue button" href="/login">
                 <i class="mdi mdi-account"></i>
                 <span>로그인</sapn>
               </button>
             </div>
-          </form>
+        </form>
 
-          <div class="right menu tablet-only">
+        <div class="right menu tablet-only">
             <div class="item">
-              <a class="ui blue button" href="/login">
-                <i class="mdi mdi-account"></i>
-                로그인
-              </a>
+                <a class="ui blue button" href="/login">
+                    <i class="mdi mdi-account"></i> 로그인
+                </a>
             </div>
-          </div>
+        </div>
         </nav>
-      </div>
+    </div>
 
-      <div class="mobile only narrow row">
+    <div class="mobile only narrow row">
         <nav class="ui fixed menu navbar">
-          <a class="brand item">
-            <img src="img/team-railgun.png" style="width:35px; height:auto"title="팀레일건/Lev6 심볼">
-          </a>
-          <a class="item" href="http://seogwipo.hs.kr" target="_blank">
-            <i class="mdi mdi-school"></i>
-            <span>제주 서귀포 고등학교</span>
-          </a>
-
-          <div class="right menu">
-            <a href="#" class="item" onclick="return openSide()">
-              <i class="mdi mdi-menu"></i>
+            <a class="brand item">
+                <img src="img/team-railgun.png" style="width:35px; height:auto" title="팀레일건/Lev6 심볼">
             </a>
-          </div>
+            <a class="item" href="http://seogwipo.hs.kr" target="_blank">
+                <i class="mdi mdi-school"></i>
+                <span>제주 서귀포 고등학교</span>
+            </a>
+
+            <div class="right menu">
+                <a href="#" class="item" onclick="return openSide()">
+                    <i class="mdi mdi-menu"></i>
+                </a>
+            </div>
         </nav>
-      </div>
-<!--헤더 끝 -->
-      <main class="section row bg" id="top">
+    </div>
+    <!--헤더 끝 -->
+    <main class="section row bg" id="top">
         <div class="ui top attached tabular menu" style="margin-left:1.5em">
-          <h2 class="ui header item" style="margin-right:-1em; margin-left:-1em">
+            <h2 class="ui header item" style="margin-right:-1em; margin-left:-1em">
             <i class="mdi mdi-bulletin-board chalkboard"></i>
             <div class="content">
               시간표
             </div>
           </h2>
-          <a href="#1grade" data-tab="timetable-1grade" class="active item">
-            <i class="mdi mdi-face"></i>
-            <span>1학년</span>
-          </a>
-          <a href="#2grade" data-tab="timetable-2grade" class="item">
-              <i class="mdi mdi-face"></i>
-              <span>2학년<span>
+            <a href="#1grade" data-tab="timetable-1grade" class="active item">
+                <i class="mdi mdi-face"></i>
+                <span>1학년</span>
+            </a>
+            <a href="#2grade" data-tab="timetable-2grade" class="item">
+                <i class="mdi mdi-face"></i>
+                <span>2학년<span>
             </a>
           </a>
 
-          <a href="#3grade" class="item">
+          <a href="#3grade" data-tab="timetable-3grade" class="item">
             <i class="mdi mdi-face"></i>
               <span>3학년</span>
-          </a>
-          <!-- tabular : http://semantic-ui.com/collections/menu.html#tabular -->
-          <!-- </div>
+            </a>
+            <!-- tabular : http://semantic-ui.com/collections/menu.html#tabular -->
+            <!-- </div>
           <div class="ui bottom attached segment"> -->
         </div>
 
         <div class="row grid timetable bottom attatched ui tab segment" id="timetable-1grade" data-tab="timetable-1grade">
         </div>
 
-		<div class="row grid timetable bottom attatched ui tab segment" id="timetable-2grade" data-tab="timetable-2grade">
-		</div>
-      </main>
-      <h2 class="ui icon header" style="margin:0 auto; margin-bottom:5px">
+        <div class="row grid timetable bottom attatched ui tab segment" id="timetable-2grade" data-tab="timetable-2grade">
+        </div>
+        <div class="row grid timetable bottom attatched ui tab segment" id="timetable-3grade" data-tab="timetable-2grade">
+        </div>
+    </main>
+    <h2 class="ui icon header" style="margin:0 auto; margin-bottom:5px">
         <i class="mdi mdi-bullhorn physical_edu"></i>
         <div class="content">
           여러 소식들
           <div class="sub header">장비를 정지합니다. 정지하겠습니다.</div>
         </div>
       </h2>
-      <main class="row section main_two" style="height: 350px">
+    <main class="row section main_two" style="height: 350px">
         <div class="ui vertical menu meals">
-          <h2 class="ui icon header">
+            <h2 class="ui icon header">
             <i class="mdi mdi-silverware-variant"></i>
             <div class="content">
               오늘의 급식
