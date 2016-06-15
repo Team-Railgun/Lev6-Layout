@@ -9,31 +9,63 @@ var camera = new THREE.PerspectiveCamera(40, 1.5, 1, 10000);
 camera.position.y = 0;
 camera.position.z = 3000;
 
-var scene = new THREE.Scene();
-var renderer = new THREE.CSS3DRenderer();
+var scene = {
+	1: new THREE.Scene(),
+	2: new THREE.Scene()
+};
+
+var renderer = {
+	1: new THREE.CSS3DRenderer(),
+	2: new THREE.CSS3DRenderer()
+};
 
 //name$append : 템플릿 'name'을 사용하며, 이름 뒤에 'append'를 붙임
 //name#replace: 템플릿 'name'을 사용하며, 이름이 'replace'로 출력됨
 
 var cards = {
-  1: 'korean$b',
-  2: 'career',
-  3: 'physics',
-  4: 'english',
-  5: 'mathematics_i',
-  6: 'korean$a',
-  7: 'club#학급',
-  8: 'club#학급'
-  // 1: 'class_on$1-1',
-  // 2: 'class_on$2-4',
-  // 3: 'class_off',
-  // 4: 'class_off',
-  // 5: 'class_on$3-2',
-  // 6: 'class_off',
-  // 7: 'class_off'
+	1: {
+		1: {
+	  		1: 'korean$b',
+	  		2: 'career',
+	  		3: 'physics',
+	  		4: 'english',
+	  		5: 'mathematics_i',
+	  		6: 'korean$a',
+	  		7: 'club#학급',
+	  		8: 'club#학급'
+		}
+  },
+  2: {
+	  1: { //2학년 1반
+		  	1: 'korean$b',
+		  	2: 'career',
+		  	3: 'physics',
+		  	4: 'english',
+		  	5: 'mathematics_i',
+		  	6: 'korean$a',
+		  	7: 'club#학급',
+		  	8: 'club#학급'
+		}
+	},
+	3: {
+  	  1: {
+  		  	1: 'korean$b',
+  		  	2: 'career',
+  		  	3: 'physics',
+  		  	4: 'english',
+  		  	5: 'mathematics_i',
+  		  	6: 'korean$a',
+  		  	7: 'club#학급',
+  		  	8: 'club#학급'
+  		}
+  	}
 };
 
-var cardObjects = {};
+var cardObjects = {
+	1: {},
+	2: {},
+	3: {}
+};
 var moveTarget = {};
 var animateDuration = 2000;
 
@@ -51,10 +83,10 @@ function animate(){
   TWEEN.update();
 }
 
-function startAnimation(){
+function startAnimation(grade){
   TWEEN.removeAll();
-  _.forEach(cardObjects, function(object, k){
-    var target = moveTarget[k];
+  _.forEach(cardObjects[grade], function(object, kClass){
+    var target = moveTarget[grade][kClass];
 
     new TWEEN.Tween(object.position)
       .to(target.position, animateDuration)
@@ -70,72 +102,94 @@ function startAnimation(){
   new TWEEN.Tween(this)
     .to({}, animateDuration)
     .onUpdate(function(){
-      renderer.render(scene, camera);
+      renderer.render(scene[grade], camera[grade]);
     })
     .start();
 }
 
-function addCards(){
-  _.forEach(cards, function(v, period){
-    var match = v.match(/^([^\s$#]+)(?:(\$|#)([^]+))?$/);
-    if(match){
-      v = match[1];
-    }
+function addCards(grade, class){
+	_.forEach(cards, function(v1, grade){
+		cardObjects[grade] = {};
+		_.forEach(cards[grade], function(v2, kClass){
+			var elem = $(document.createElement('div')).addClass('gg card')
+			  .append(
+				$(document.createElement('h2')).html(grade + ' - ' + kClass);
+			  );
 
-    var text = assigned[v].text;
+			var object = new THREE.CSS3DObject(elem.get(0));
 
-    if(match && match[2] && match[3]){
-      text = (match[2] === '$') ? text + match[3] : match[3];
-    }
+			object.position.x = Math.randomRange(-300, 300);
+			object.position.y = Math.randomRange(300, -300);
+			object.position.z = Math.randomRange(-300, 300);
 
-    var elem = $(document.createElement('div')).addClass('gg card')
-      .append(
-        $(document.createElement('h2'))
-          .append($(document.createElement('i')).addClass(assigned[v].icon))
-      )
-      .append(
-        $(document.createElement('h3')).text(period + '교시 ' + text)
-      );
+			object.rotateX(Math.randomRange(0, 360));
+			object.rotateY(Math.randomRange(0, 360));
+			object.rotateZ(Math.randomRange(0, 360));
+			cardObject[grade].gradeCard = object;
 
-    var object = new THREE.CSS3DObject(elem.get(0));
+			cardObject[grade][kClass] = {};
+			_.forEach(cards[grade][kClass], function(v, period){
+				var match = v.match(/^([^\s$#]+)(?:(\$|#)([^]+))?$/);
+			    if(match){
+			      v = match[1];
+			    }
 
-    //Randomize Object position
-    object.position.x = Math.randomRange(-300, 300);
-    object.position.y = Math.randomRange(300, -300);
-    object.position.z = Math.randomRange(-300, 300);
+			    var text = assigned[v].text;
 
-    object.rotateX(Math.randomRange(0, 360));
-    object.rotateY(Math.randomRange(0, 360));
-    object.rotateZ(Math.randomRange(0, 360));
+			    if(match && match[2] && match[3]){
+			      text = (match[2] === '$') ? text + match[3] : match[3];
+			    }
 
-    var cardX = (period - 1) % cardsPerRow;
-    var cardY = Math.floor((period - 1) / cardsPerRow);
+			    var elem = $(document.createElement('div')).addClass('gg card')
+			      .append(
+			        $(document.createElement('h2'))
+			          .append($(document.createElement('i')).addClass(assigned[v].icon))
+			      );
+			      .append(
+			        $(document.createElement('h3')).text(period + '교시 ' + text)
+			      );
 
-    cardObjects[period] = object;
+			    var object = new THREE.CSS3DObject(elem.get(0));
 
-    scene.add(object);
-  });
+			    //Randomize Object position
+			    /*
+				object.position.x = Math.randomRange(-300, 300);
+			    object.position.y = Math.randomRange(300, -300);
+			    object.position.z = Math.randomRange(-300, 300);
+
+			    object.rotateX(Math.randomRange(0, 360));
+			    object.rotateY(Math.randomRange(0, 360));
+			    object.rotateZ(Math.randomRange(0, 360));
+				*/ //TODO update period code
+
+			    cardObjects[grade][kClass][period] = object;
+			});
+		});
+	});
 }
 
 function writeMoveTarget(){
-  _.forEach(cards, function(v, period){
-    var cardX = (period - 1) % Math.floor(cardsPerRow);
-    var cardY = Math.floor((period - 1) / Math.floor(cardsPerRow));
-    var parentWidth = parseInt(window.getComputedStyle(parent).width.replace(/[^0-9\.]/g, ''))
-    moveTarget[period] = {
-      position: {
-        x: ((cardX) * cardWidth) - ((cardsPerRow + 1) * cardWidth / 2)  - (parentWidth - 640) / 4,
-        y: (((cardsRow - 1) / 2) - cardY) * (cardHeight / 2),
-        z: cardZ
-      },
+	_.forEach(cards, function(v1, grade){
+		moveTarget[grade] = {};
+		_.forEach(cards[grade], function(v2, kClass){
+			var cardX = (kClass - 1) % Math.floor(cardsPerRow);
+		    var cardY = Math.floor((kClass - 1) / Math.floor(cardsPerRow));
+		    var parentWidth = parseInt(window.getComputedStyle(parent).width.replace(/[^0-9\.]/g, ''));
+		    moveTarget[grade][kClass] = {
+		      position: {
+		        x: ((cardX) * cardWidth) - ((cardsPerRow + 1) * cardWidth / 2)  - (parentWidth - 640) / 4,
+		        y: (((cardsRow - 1) / 2) - cardY) * (cardHeight / 2),
+		        z: cardZ
+		      },
 
-      rotation: {
-        x: 0,
-        y: 0,
-        z: 0
-      }
-    };
-  });
+		      rotation: {
+		        x: 0,
+		        y: 0,
+		        z: 0
+		      }
+			});
+		});
+	});
 }
 
 function update(){
@@ -144,7 +198,9 @@ function update(){
 
   camera.aspect = width / height;
   camera.updateProjectionMatrix();
-  renderer.setSize(width, height);
+  _.forEach(cards, function(v1, grade){
+	  renderer[grade].setSize(width, height);
+  });
 
   cardsPerRow = width / (cardWidth / 2.24);
   if(cardsPerRow < 1) cardsPerRow = 1;
@@ -155,7 +211,7 @@ function update(){
 
 function resize(){
   update();
-  startAnimation();
+  startAnimationAll();
 }
 
 animate();
@@ -167,7 +223,13 @@ $(document).ready(function(){
 
   var renderView = $(renderer.domElement);
   $('#timetable-1grade').append(renderView);
-  startAnimation();
+  startAnimationAll();
 });
+
+function startAnimationAll(){
+	_.forEach(cards, function(v, grade){
+		startAnimation(grade);
+	});
+}
 
 $(window).resize(resize);
