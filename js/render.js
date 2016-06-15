@@ -13,7 +13,7 @@ camera.position.z = 3000;
 
 var cards = {
 	1: {
-		1: {
+		1: { // 1-1
 	  		1: 'korean$b',
 	  		2: 'career',
 	  		3: 'physics',
@@ -25,7 +25,7 @@ var cards = {
 		}
   },
   2: {
-	  1: { //2학년 1반
+	  1: { // 2-1
 		  	1: 'korean$b',
 		  	2: 'career',
 		  	3: 'physics',
@@ -37,7 +37,7 @@ var cards = {
 		}
 	},
 	3: {
-  	  1: {
+  	  1: { // 3-1
   		  	1: 'korean$b',
   		  	2: 'career',
   		  	3: 'physics',
@@ -147,7 +147,7 @@ function addCards(){
 
 			    //Randomize Object position
 			    /*
-				object.position.x = Math.randomRange(-300, 300);
+				  object.position.x = Math.randomRange(-300, 300);
 			    object.position.y = Math.randomRange(300, -300);
 			    object.position.z = Math.randomRange(-300, 300);
 
