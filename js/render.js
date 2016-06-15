@@ -8,17 +8,6 @@ var parent;
 var camera = new THREE.PerspectiveCamera(40, 1.5, 1, 10000);
 camera.position.y = 0;
 camera.position.z = 3000;
-
-var scene = {
-	1: new THREE.Scene(),
-	2: new THREE.Scene()
-};
-
-var renderer = {
-	1: new THREE.CSS3DRenderer(),
-	2: new THREE.CSS3DRenderer()
-};
-
 //name$append : 템플릿 'name'을 사용하며, 이름 뒤에 'append'를 붙임
 //name#replace: 템플릿 'name'을 사용하며, 이름이 'replace'로 출력됨
 
@@ -61,11 +50,16 @@ var cards = {
   	}
 };
 
-var cardObjects = {
-	1: {},
-	2: {},
-	3: {}
-};
+var scene = {};
+
+var renderer = {};
+
+_.forEach(cards, function(v, grade){
+	renderer[grade] = new THREE.CSS3DRenderer();
+	scene[grade] = new THREE.Scene();
+});
+
+var cardObjects = {};
 var moveTarget = {};
 var animateDuration = 2000;
 
@@ -102,18 +96,18 @@ function startAnimation(grade){
   new TWEEN.Tween(this)
     .to({}, animateDuration)
     .onUpdate(function(){
-      renderer.render(scene[grade], camera[grade]);
+      renderer[grade].render(scene[grade], camera);
     })
     .start();
 }
 
-function addCards(grade, class){
+function addCards(){
 	_.forEach(cards, function(v1, grade){
 		cardObjects[grade] = {};
 		_.forEach(cards[grade], function(v2, kClass){
 			var elem = $(document.createElement('div')).addClass('gg card')
 			  .append(
-				$(document.createElement('h2')).html(grade + ' - ' + kClass);
+				$(document.createElement('h2')).html(grade + ' - ' + kClass)
 			  );
 
 			var object = new THREE.CSS3DObject(elem.get(0));
@@ -144,7 +138,7 @@ function addCards(grade, class){
 			      .append(
 			        $(document.createElement('h2'))
 			          .append($(document.createElement('i')).addClass(assigned[v].icon))
-			      );
+			      )
 			      .append(
 			        $(document.createElement('h3')).text(period + '교시 ' + text)
 			      );
@@ -187,7 +181,7 @@ function writeMoveTarget(){
 		        y: 0,
 		        z: 0
 		      }
-			});
+			};
 		});
 	});
 }
@@ -220,7 +214,6 @@ $(document).ready(function(){
   parent = $('#top').get(0);
   update();
   addCards();
-
 
   _.forEach(cards, function(v, grade){
 	  var renderView = $(renderer[grade].domElement);
