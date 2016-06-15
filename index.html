@@ -151,19 +151,19 @@
       </div>
 <!--헤더 끝 -->
       <main class="section row bg" id="top">
-        <div class="ui attached tabular menu" style="margin-left:1.5em" onclick="return openTab()">
+        <div class="ui top attached tabular menu" style="margin-left:1.5em">
           <h2 class="ui header item" style="margin-right:-1em; margin-left:-1em">
             <i class="mdi mdi-bulletin-board chalkboard"></i>
             <div class="content">
               시간표
             </div>
           </h2>
-          <a href="#1grade" class="active item">
+          <a href="#1grade" data-tab="timetable-1grade" class="active item">
             <i class="mdi mdi-face"></i>
             <span>1학년</span>
           </a>
 
-          <a href="#2grade" class="item">
+          <a href="#2grade" data-tab="timetable-2grade" class="item">
               <i class="mdi mdi-face"></i>
               <span>2학년<span>
             </a>
@@ -177,8 +177,12 @@
           <!-- </div>
           <div class="ui bottom attached segment"> -->
         </div>
-        <div class="row grid timetable">
+
+        <div class="row grid timetable bottom attatched ui tab segment" id="timetable-1grade" data-tab="timetable-1grade">
         </div>
+
+		<div class="row grid timetable bottom attatched ui tab segment" id="timetable-2grade" data-tab="timetable-2grade">
+		</div>
       </main>
       <h2 class="ui icon header" style="margin:0 auto; margin-bottom:5px">
         <i class="mdi mdi-bullhorn physical_edu"></i>

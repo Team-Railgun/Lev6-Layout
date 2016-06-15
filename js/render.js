@@ -166,7 +166,7 @@ $(document).ready(function(){
   addCards();
 
   var renderView = $(renderer.domElement);
-  $('.timetable').append(renderView);
+  $('#timetable-1grade').append(renderView);
   startAnimation();
 });
 
