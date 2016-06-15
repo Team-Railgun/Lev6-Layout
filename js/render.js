@@ -221,8 +221,11 @@ $(document).ready(function(){
   update();
   addCards();
 
-  var renderView = $(renderer.domElement);
-  $('#timetable-1grade').append(renderView);
+
+  _.forEach(cards, function(v, grade){
+	  var renderView = $(renderer[grade].domElement);
+	  $('#timetable-' + grade + 'grade').append(renderView);
+  });
   startAnimationAll();
 });
 
