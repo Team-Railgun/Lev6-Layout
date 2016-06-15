@@ -109,8 +109,17 @@ i[class$=edu] {
 .meals {
   width: 300px;
   margin: 1em;
+  float: left;
   display: inline-block;
   padding: 20px;
+}
+
+.calendar {
+  width: 310px;
+  margin: 1em;
+  float: right;
+  display: inline-block;
+  padding: 20px
 }
 
 /*.facebook {
