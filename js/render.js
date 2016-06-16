@@ -78,9 +78,9 @@ function animate(){
 }
 
 function startAnimation(grade){
-  TWEEN.removeAll();
   _.forEach(cardObjects[grade], function(object, kClass){
     var target = moveTarget[grade][kClass];
+	var object = object.classCard;
 
     new TWEEN.Tween(object.position)
       .to(target.position, animateDuration)
@@ -107,7 +107,11 @@ function addCards(){
 		_.forEach(cards[grade], function(v2, kClass){
 			var elem = $(document.createElement('div')).addClass('gg card')
 			  .append(
-				$(document.createElement('h2')).html(grade + ' - ' + kClass)
+				$(document.createElement('a')).append(
+					$(document.createElement('h1')).html(grade + ' - ' + kClass)
+				).on('click', function(){
+					updateClass(grade, kClass);
+				})
 			  );
 
 			var object = new THREE.CSS3DObject(elem.get(0));
@@ -119,9 +123,11 @@ function addCards(){
 			object.rotateX(Math.randomRange(0, 360));
 			object.rotateY(Math.randomRange(0, 360));
 			object.rotateZ(Math.randomRange(0, 360));
-			cardObject[grade].gradeCard = object;
 
-			cardObject[grade][kClass] = {};
+			cardObjects[grade][kClass] = {};
+			cardObjects[grade][kClass].classCard = object;
+			scene[grade].add(object);
+
 			_.forEach(cards[grade][kClass], function(v, period){
 				var match = v.match(/^([^\s$#]+)(?:(\$|#)([^]+))?$/);
 			    if(match){
@@ -160,6 +166,10 @@ function addCards(){
 			});
 		});
 	});
+}
+
+function updateClass(){
+	//TODO show periods
 }
 
 function writeMoveTarget(){
@@ -223,6 +233,7 @@ $(document).ready(function(){
 });
 
 function startAnimationAll(){
+	TWEEN.removeAll();
 	_.forEach(cards, function(v, grade){
 		startAnimation(grade);
 	});
