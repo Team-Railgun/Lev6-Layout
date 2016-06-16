@@ -14,8 +14,23 @@
     margin-bottom: 20px;
 }
 
+#top {
+  position: relative;
+  top: 11px
+}
+
+main {
+    padding-left: 2rem;
+    padding-right: 2rem
+}
+
+.section {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
 /* Footer */
-.footer {
+/*.footer {
     position: relative;
     background: #F1F1F1;
     padding: 24px 0;
@@ -28,7 +43,7 @@
 .credit {
   margin: 0 auto;
   text-align: center;
-}
+}*/
 
 @media (min-width: 1200px){
   .container {

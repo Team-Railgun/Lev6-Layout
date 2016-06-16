@@ -1,18 +1,3 @@
-#top {
-  position: relative;
-  top: 11px
-}
-
-main {
-    padding-left: 2rem;
-    padding-right: 2rem
-}
-
-.section {
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-}
-
 .main_two {
   position: relative;
   border-top: 1px solid #d9d9d9;
