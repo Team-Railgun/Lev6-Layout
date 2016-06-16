@@ -41,69 +41,28 @@
 
 <body>
     <!--헤더 시작 -->
-    <div id="mobile-menu" class="ui sidebar vertical menu">
-        <a class="item">
-            <i class="mdi mdi-clock"></i>
-            <span id="time"><span>
-      </a>
+    <div id="mobile-menu" class="ui sidebar vertical menu"> <!-- 모바일 사이드바-->
       <a class="item physical_edu">
         <i class="mdi mdi-flag"></i>
-        이슈
+        도움말
     </a>
-    <div class="item">
-    <h3 class="ui header">로그인</h3>
-    </div>
-    <div class="item">
-      <div class="ui input">
-        <input type="text" placeholder="Email">
-      </div>
-    </div>
-
-    <div class="item borderless">
-      <div class="ui input">
-        <input type="password" placeholder="Password" class="form-control">
-      </div>
-    </div>
-    <div class="item">
-      <a class="ui blue button" href="/login">
-        <i class="mdi mdi-email"></i>
-        이메일
-      </a>
-    </div>
-    <div class="item">
-      <button class="ui facebook button">
-        <i class="mdi mdi-facebook"></i>
-        페이스북
-      </button>
-  </div>
   </div>
 
     <div class="ui grid page pusher">
       <div class="tablet computer only row">
         <nav class="ui fixed menu navbar" role="navigation">
           <a class="brand blue item">
-            <!-- <i class="mdi mdi-black-mesa"></i> -->
-            <img src="img/team-railgun.png" style="width:35px; height:auto" title="팀레일건/Lev6 심볼">
-            <!-- <span>Lev6</span> -->
+            <img src="img/team-railgun.png" style="width:40px; height:auto; margin-left:1.5em" title="팀레일건/Lev6 심볼">
+            <span style="margin-left:1em"><h5><i class="mdi mdi-school"></i>Lev6</h5> 제주 서귀포고등학교</span>
         </a>
 
-        <a class="item" href="http://seogwipo.hs.kr" target="_blank">
-            <i class="mdi mdi-school"></i>
-            <span>제주 서귀포고등학교</span>
-        </a>
-
-        <a class="item">
-            <i class="mdi mdi-clock"></i>
-            <span id="time"><span>
-          </a>
-
-          <a class="item physical_edu" href="/issue">
+          <!-- <a class="item physical_edu" href="/issue">
             <i class="mdi mdi-flag"></i>
             <span>문의</span>
-        </a>
+        </a> -->
 
         <form class="right menu desktop-only">
-            <div class="item">
+            <!-- <div class="item">
                 <div class="ui input">
                     <input type="text" placeholder="Email">
                 </div>
@@ -113,7 +72,7 @@
                 <div class="ui input">
                     <input type="password" placeholder="Password" class="form-control">
                 </div>
-            </div>
+            </div> -->
 
             <div class="item borderless">
                 <button type="submit" class="ui blue button" href="/login">
@@ -126,7 +85,7 @@
         <div class="right menu tablet-only">
             <div class="item">
                 <a class="ui blue button" href="/login">
-                    <i class="mdi mdi-account"></i> 로그인
+                    <i class="mdi mdi-account"></i> <span>로그인</span>
                 </a>
             </div>
         </div>
@@ -135,18 +94,20 @@
 
     <div class="mobile only narrow row">
         <nav class="ui fixed menu navbar">
-            <a class="brand item">
-                <img src="img/team-railgun.png" style="width:35px; height:auto" title="팀레일건/Lev6 심볼">
-            </a>
-            <a class="item" href="http://seogwipo.hs.kr" target="_blank">
-                <i class="mdi mdi-school"></i>
-                <span>제주 서귀포 고등학교</span>
-            </a>
+          <a class="brand blue item">
+            <img src="img/team-railgun.png" style="width:40px; height:auto; margin-left:1.5em" title="팀레일건/Lev6 심볼">
+            <span style="margin-left:1em"><h5><i class="mdi mdi-school"></i>Lev6</h5> 제주 서귀포고등학교</span>
+        </a>
 
             <div class="right menu">
-                <a href="#" class="item" onclick="return openSide()">
+                <!-- <a href="#" class="item" onclick="return openSide()">
                     <i class="mdi mdi-menu"></i>
-                </a>
+                </a> -->
+                <div class="item">
+                  <a class="ui blue button" href="/login">
+                    로그인
+                  </a>
+                </div>
             </div>
         </nav>
     </div>
@@ -250,7 +211,7 @@
       </main>
     </div>
 
-    <div class="footer">
+    <div class="footer" style="bottom:0">
       <div class="container">
         <div class="row-container warp">
           <div class="credit">
