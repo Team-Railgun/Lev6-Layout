@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Lev6 - 로그인</title>
+
+    <!-- jQuery -->
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+
+    <!-- lodash -->
+    <script src="bower_components/lodash/dist/lodash.min.js"></script>
+
+    <!-- semantic-ui -->
+    <link href="bower_components/semantic/dist/semantic.min.css" rel="stylesheet">
+    <script src="bower_components/semantic/dist/semantic.min.js"></script>
+
+    <!-- mdi -->
+    <link href="bower_components/mdi/css/materialdesignicons.min.css" media="all" rel="stylesheet">
+
+    <!-- octicons -->
+    <link rel="stylesheet" href="bower_components/octicons/octicons/octicons.css">
+
+    <!--etc.. -->
+    <link href="css/login.css" rel="stylesheet">
+    <link href="css/common.css" rel="stylesheet">
+    <link href="css/table.css" rel="stylesheet">
+    <script src="js/time.js"></script>
+    <script src="js/ui.js"></script>
+  </head>
+  <body>
+  <script>
+  $(document)
+    .ready(function() {
+      $('.ui.form')
+        .form({
+          fields: {
+            email: {
+              identifier  : 'email',
+              rules: [
+                {
+                  type   : 'empty',
+                  prompt : '이메일을 입력해주세요'
+                },
+                {
+                  type   : 'email',
+                  prompt : '유효한 이메일을 입력해주세요'
+                }
+              ]
+            },
+            password: {
+              identifier  : 'password',
+              rules: [
+                {
+                  type   : 'empty',
+                  prompt : '비밀번호를 입력해주세요'
+                },
+                {
+                  type   : 'length[6]',
+                  prompt : '비밀번호는 6자를 넘어야 합니다.'
+                }
+              ]
+            }
+          }
+        })
+      ;
+    })
+  ;
+  </script>
+</head>
+<body>
+  <div class="ui grid page pusher">
+    <div class="tablet computer only row">
+      <nav class="ui fixed menu navbar" role="navigation">
+        <a class="brand blue item">
+          <img src="img/team-railgun.png" style="width:40px; height:auto; margin-left:1.5em" title="팀레일건/Lev6 심볼">
+          <span style="margin-left:1em"><h5><i class="mdi mdi-school"></i>Lev6</h5> 제주 서귀포고등학교</span>
+      </a>
+
+        <!-- <a class="item physical_edu" href="/issue">
+          <i class="mdi mdi-flag"></i>
+          <span>문의</span>
+      </a> -->
+
+      <form class="right menu desktop-only">
+          <!-- <div class="item">
+              <div class="ui input">
+                  <input type="text" placeholder="Email">
+              </div>
+          </div>
+
+          <div class="item borderless">
+              <div class="ui input">
+                  <input type="password" placeholder="Password" class="form-control">
+              </div>
+          </div> -->
+
+          <div class="item borderless">
+              <!-- <button type="submit" class="ui blue button" href="/login"> -->
+              <i class="mdi mdi-account"></i>
+              <span>회원가입</sapn>
+            <!-- </button> -->
+          </div>
+      </form>
+      <div class="mobile only narrow row">
+          <nav class="ui fixed menu navbar">
+            <a class="brand item">
+              <img src="img/team-railgun.png" style="width:40px; height:auto; margin-left:1.5em" title="팀레일건/Lev6 심볼">
+              <span style="margin-left:1em"><h5><i class="mdi mdi-school"></i>Lev6</h5> 제주 서귀포고등학교</span>
+          </a>
+
+              <div class="right menu">
+                  <!-- <a href="#" class="item" onclick="return openSide()">
+                      <i class="mdi mdi-menu"></i>
+                  </a> -->
+                  <div class="item">
+                      <i class="mdi mdi-account"></i>
+                      <span>회원가입</span>
+                  </div>
+              </div>
+          </nav>
+      </div>
+    </div>
+  <!-- </div> -->
+
+  <div class="ui middle aligned center aligned grid">
+    <div class="column" style="top:2em">
+      <form class="ui large form">
+        <div class="ui stacked segment">
+          <h1 class="ui teal image header" style="float:left; font-size:4em">
+            <!-- <img src="img/team-railgun.png" class="image"> -->
+            <div class="content">
+              SIGN<span style="font-weight:normal; color:black">IN</span>
+            </div>
+          </h1>
+          <div class="field">
+            <div class="ui left icon input">
+              <i class="mdi mdi-account" style="font-size:1em"></i> <!-- 이상하게 폰트-어섬만 입력폼에 들어감-->
+              <input type="text" name="email" placeholder="이메일 주소">
+            </div>
+          </div>
+          <div class="field">
+            <div class="ui left icon input">
+              <i class="mdi mdi-key" style="font-size:1em"></i> <!-- 이상하게 폰트-어섬만 입력폼에 들어감-->
+              <input type="password" name="password" placeholder="비밀번호">
+            </div>
+          </div>
+          <div class="ui fluid large teal submit button">로그인</div>
+        </div>
+
+        <from class="ui large from">
+          <div class="ui stacked segment">
+            <h1 class="ui teal image header" style="float:left; font-size:4em">
+              <!-- <img src="img/team-railgun.png" class="image"> -->
+              <div class="content">
+                MEA<span style="font-weight:normal; color:black">LS</span>
+              </div>
+            </h1>
+            <div class="ui vertical menu meals">
+              <div class="ui tabular menu">
+                <a class="item" href="#">아침</a>
+                <a class="item" href="#">점심</a>
+                <a class="active item">저녁</a>
+              </div>
+              <a class="item">
+                콩나물
+              </li>
+              <a class="item">
+                <div class="ui label">콩류</div>
+                콩자반
+              </a>
+              <a class="item">
+                <div class="ui label">콩류</div>
+                콩밥
+              </a>
+              <a class="item">
+                콩나물국
+              </a>
+            </div>
+          </div>
+      </form>
+
+      <!-- <div class="ui message">
+        New to us? <a href="#">Sign Up</a>
+      </div> -->
+    </div>
+  </div>
+</div>
+  <div class="ui inverted vertical footer segment" style="top:3em">
+    <div class="ui container">
+      <div class="row-container warp">
+        <div class="credit">
+          <h5 class="ui inverted header">
+            <img src="img/team-railgun.png" style="width:50px; hight:auto;">
+            <span>Project Lev6</span></h5>
+          <p>copyright(C) Team-railgun</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
+    <!--헤더 끝 -->
