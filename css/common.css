@@ -39,11 +39,11 @@ main {
     left: 0;
     right: 0;
 }
-
+*/
 .credit {
   margin: 0 auto;
   text-align: center;
-}*/
+}
 
 @media (min-width: 1200px){
   .container {
