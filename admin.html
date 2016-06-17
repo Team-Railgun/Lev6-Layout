@@ -31,7 +31,6 @@
 		<!-- common, index etc.. -->
 		<link href="css/common.css" rel="stylesheet">
 		<script src="js/assigned.js"></script>
-		<script src="js/render.js"></script>
 		<script src="js/time.js"></script>
 		<script src="js/ui.js"></script>
 	</head>
@@ -43,6 +42,11 @@
 			<a class="item physical_edu">
 				<i class="mdi mdi-flag"></i> 도움말
 			</a>
+			<div class="item">
+	            <a class="ui blue button" href="/login">
+	                <i class="mdi mdi-account"></i> <span>로그아웃</span>
+	            </a>
+	        </div>
 		</div>
 
 		<div class="ui grid page pusher">
@@ -81,9 +85,9 @@
 
 					<div class="right menu">
 						<div class="item">
-							<a class="ui blue button" href="/login">
-								로그아웃
-							</a>
+							<a href="#" class="item" onclick="return openSide()">
+			                    <i class="mdi mdi-menu"></i>
+			                </a>
 						</div>
 					</div>
 				</nav>
@@ -100,21 +104,21 @@
 				<table class="ui celled table">
 					<thead>
 						<tr>
-							<th colspan="3">
-								<div class="ui right floated pagination menu">
+							<th colspan="8" style="text-align: center">
+								<div class="ui pagination menu">
 									<a class="icon item">
-										<i class="left chevron icon"></i>
+										<i class="mdi mdi-chevron-left"></i>
 									</a>
-									<a class="item"><i class="mdi mid-account"></i><span>1학년</span></a>
+									<a class="item"><i class="mdi mdi-account"></i><span>1학년</span></a>
 									<a class="item">2학년</a>
 									<a class="item">3학년</a>
 									<a class="icon item">
-										<i class="right chevron icon"></i>
+										<i class="mdi mdi-chevron-right"></i>
 									</a>
 								</div>
 							</th>
 						</tr>
-						<tr>
+						<tr class="mobile-hidden">
 							<th>교시</th>
 							<th>1반</th>
 							<th>2반</th>
@@ -166,6 +170,32 @@
 					<tfoot>
 					</tfoot>
 				</table>
+				<form>
+					<h2>
+						<i class="mdi mdi-autorenew"></i>
+						시간표
+						<span class="unbold">바꾸기</span>
+					</h2>
+
+					<div class="ui right labeled left icon input">
+						<i class="mdi mdi-clock-out icon"></i>
+						<input type="number" placeholder="바꿀 교시">
+						<a class="ui tag label" onclick="showChange">선택</a>
+					</div>
+
+					<div class="ui right labeled left icon input">
+						<i class="mdi mdi-clock-in icon"></i>
+						<input type="number" placeholder="바꿀 대상">
+						<a class="ui tag label" onclick="showChange">선택</a>
+					</div>
+
+					<div class="ui icon input">
+						<input type="text" placeholder="비고">
+						<i class="mdi mdi-message-text circular inverted icon"></i>
+					</div>
+
+					<input class="ui button" type="submit" value="변경">
+				</form>
 			</main>
 		</div>
 		<div class="ui inverted vertical footer segment" style="top:3em">
