@@ -107,18 +107,32 @@ i[class$=edu] {
   font-size: 30px;
 }
 
+.meals {
+  margin: 1em;
+  display: inline-block;
+  padding: 20px;
+  margin: 0 10px !important;
+}
+
+.calendar {
+  margin: 1em;
+  display: inline-block;
+  padding: 20px;
+  margin: 0 10px !important;
+  width: initial !important;
+}
+
 /* 콩콩 급식 */
 @media (max-width: 768px ) {
-  .meals {
+  .notification {
     margin: 0 auto !important;
-  }
-  .calendar {
-    margin: 0 auto !important;
+    width: 100% !important;
   }
   /*.facebook{
     margin: 0 auto!important;
   }*/
 }
+
 @keyframes fade-out {
   from {
     opacity: 1;
@@ -137,21 +151,6 @@ i[class$=edu] {
   to {
     opacity: 1;
   }
-}
-
-.meals {
-  margin: 1em;
-  display: inline-block;
-  padding: 20px;
-  margin: 0 10px !important;
-}
-
-.calendar {
-  margin: 1em;
-  display: inline-block;
-  padding: 20px;
-  margin: 0 10px !important;
-  width: initial !important;
 }
 
 /*.facebook {
