@@ -175,7 +175,7 @@ function addCards() {
 					opacity: 0
 				})
 				.on('click', function() {
-					backToGrade(grade, kClass);
+					backToGrade(grade);
 				});
 			var backObject = new THREE.CSS3DObject(back.get(0));
 			randomize(backObject);
@@ -241,8 +241,22 @@ var filterSameClass = function(grade, kClass) {
 };
 
 var filterNotSameClass = function(grade, kClass) {
+	var _filter = filterSameClass(grade, kClass);
 	return (function(v) {
-		return !(v.cardType === 'period' && v.cardData.grade === grade && v.cardData['class'] === kClass);
+		return !(_filter(v));
+	});
+};
+
+var filterGrade = function(grade){
+	return (function(v){
+		return v.cardType === 'class' && v.cardData.grade === grade;
+	});
+};
+
+var filterNotGrade = function(grade){
+	var _filter = filterGrade(grade);
+	return (function(v){
+		return !(_filter(v));
 	});
 };
 
@@ -264,6 +278,24 @@ function updateClass(grade, kClass) {
 
 	TWEEN.removeAll();
 	startAnimation(grade, kClass);
+}
+
+function backToGrade(grade){
+	scene[grade].children
+		.filter(filterGrade(grade))
+		.forEach(function(v) {
+			v.element.style.animation = "fade-in 0.5s linear 1 forwards";
+			randomize(v);
+		});
+
+	scene[grade].children
+		.filter(filterNotGrade(grade))
+		.forEach(function(v) {
+			v.element.style.animation = "fade-out 0.5s linear 1 forwards";
+		});
+
+	TWEEN.removeAll();
+	startAnimation(grade);
 }
 
 function getPosition(index, cardsRow) {
@@ -300,9 +332,6 @@ function writeMoveTarget() {
 }
 
 function writePeriodCardMoveTarget(grade, kClass) {
-	moveTarget[grade] = {};
-	moveTarget[grade][kClass] = {};
-
 	var cardCount = Object.keys(cards[grade][kClass])
 		.length;
 	var cardsRow = Math.ceil((cardCount + 1) / cardsPerRow);
