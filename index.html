@@ -51,7 +51,7 @@
       <div class="tablet computer only row">
         <nav class="ui fixed menu navbar" role="navigation">
           <a class="brand blue item">
-            <img src="img/team-railgun.png" style="width:40px; height:auto; margin-left:1.5em" title="팀레일건/Lev6 심볼">
+            <img src="img/team-railgun.png" title="팀레일건/Lev6 심볼">
             <span style="margin-left:1em"><h5><i class="mdi mdi-school"></i>Lev6</h5> 제주 서귀포고등학교</span>
         </a>
 
@@ -94,14 +94,11 @@
     <div class="mobile only narrow row">
         <nav class="ui fixed menu navbar">
           <a class="brand blue item">
-            <img src="img/team-railgun.png" style="width:40px; height:auto; margin-left:1.5em" title="팀레일건/Lev6 심볼">
+            <img src="img/team-railgun.png" title="팀레일건/Lev6 심볼">
             <span style="margin-left:1em"><h5><i class="mdi mdi-school"></i>Lev6</h5> 제주 서귀포고등학교</span>
         </a>
 
             <div class="right menu">
-                <!-- <a href="#" class="item" onclick="return openSide()">
-                    <i class="mdi mdi-menu"></i>
-                </a> -->
                 <div class="item">
                   <a class="ui blue button" href="/login">
                     로그인
@@ -116,7 +113,7 @@
             <h2 class="ui header item" style="margin-right:-1em; margin-left:-1em">
             <i class="mdi mdi-bulletin-board chalkboard"></i>
             <div class="content">
-              TAB<span style="font-weight:normal; color:black;">LE</span>
+              TAB<span class="unbold">LE</span>
               <div class="sub header">시간표</div>
             </div>
           </h2>
@@ -134,14 +131,10 @@
             <i class="mdi mdi-face"></i>
               <span>3학년</span>
             </a>
-            <!-- tabular : http://semantic-ui.com/collections/menu.html#tabular -->
-            <!-- </div>
-          <div class="ui bottom attached segment"> -->
         </div>
 
-        <div class="row grid timetable bottom attatched ui tab segment" id="timetable-1grade" data-tab="timetable-1grade">
+        <div class="row grid timetable bottom attatched ui tab segment active" id="timetable-1grade" data-tab="timetable-1grade">
         </div>
-
         <div class="row grid timetable bottom attatched ui tab segment" id="timetable-2grade" data-tab="timetable-2grade">
         </div>
         <div class="row grid timetable bottom attatched ui tab segment" id="timetable-3grade" data-tab="timetable-2grade">
@@ -159,7 +152,7 @@
             <h2 class="ui icon header">
             <i class="mdi mdi-silverware-variant"></i>
             <div class="content">
-              오늘의 급식
+              오늘의 <span class="unbold">급식</span>
               <!-- <div class="sub header">너도 나도 사이 좋게 급식충이 되어 보자</div> -->
             </div>
             </h3>
@@ -187,7 +180,7 @@
           <h2 class="ui icon header">
             <i class="mdi mdi-calendar"></i>
             <div class="content">
-              이번주 일정
+              이번주 <span class="unbold">일정</span>
             </div>
             </h3>
           <div class="ui tabular menu">

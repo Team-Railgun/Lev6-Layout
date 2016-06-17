@@ -1,7 +1,7 @@
-Math.randomRange = function(max, min){
-  min = min || 0;
+Math.randomRange = function(max, min) {
+	min = min || 0;
 
-  return Math.round(Math.random() * (max - min)) + min;
+	return Math.round(Math.random() * (max - min)) + min;
 };
 
 var parent;
@@ -14,47 +14,47 @@ camera.position.z = 3000;
 var cards = {
 	1: {
 		1: { // 1-1
-	  		1: 'korean$b',
-	  		2: 'career',
-	  		3: 'physics',
-	  		4: 'english',
-	  		5: 'mathematics_i',
-	  		6: 'korean$a',
-	  		7: 'club#학급',
-	  		8: 'club#학급'
+			1: 'korean$b',
+			2: 'career',
+			3: 'physics',
+			4: 'english',
+			5: 'mathematics_i',
+			6: 'korean$a',
+			7: 'club#학급',
+			8: 'club#학급'
 		}
-  },
-  2: {
-	  1: { // 2-1
-		  	1: 'korean$b',
-		  	2: 'career',
-		  	3: 'physics',
-		  	4: 'english',
-		  	5: 'mathematics_i',
-		  	6: 'korean$a',
-		  	7: 'club#학급',
-		  	8: 'club#학급'
+	},
+	2: {
+		1: { // 2-1
+			1: 'korean$b',
+			2: 'career',
+			3: 'physics',
+			4: 'english',
+			5: 'mathematics_i',
+			6: 'korean$a',
+			7: 'club#학급',
+			8: 'club#학급'
 		}
 	},
 	3: {
-  	  1: { // 3-1
-  		  	1: 'korean$b',
-  		  	2: 'career',
-  		  	3: 'physics',
-  		  	4: 'english',
-  		  	5: 'mathematics_i',
-  		  	6: 'korean$a',
-  		  	7: 'club#학급',
-  		  	8: 'club#학급'
-  		}
-  	}
+		1: { // 3-1
+			1: 'korean$b',
+			2: 'career',
+			3: 'physics',
+			4: 'english',
+			5: 'mathematics_i',
+			6: 'korean$a',
+			7: 'club#학급',
+			8: 'club#학급'
+		}
+	}
 };
 
 var scene = {};
 
 var renderer = {};
 
-_.forEach(cards, function(v, grade){
+_.forEach(cards, function(v, grade) {
 	renderer[grade] = new THREE.CSS3DRenderer();
 	scene[grade] = new THREE.Scene();
 });
@@ -69,174 +69,295 @@ var height = undefined;
 var cardWidth = 350; // default : 300
 var cardHeight = 650; // default : 600
 var cardsPerRow = undefined;
-var cardsRow = undefined;
 var cardZ = 1000;
 
-function animate(){
-  requestAnimationFrame(animate);
-  TWEEN.update();
+function animate() {
+	requestAnimationFrame(animate);
+	TWEEN.update();
 }
 
-function startAnimation(grade){
-  _.forEach(cardObjects[grade], function(object, kClass){
-    var target = moveTarget[grade][kClass];
-	var object = object.classCard;
+function registerAnimation(object, target) {
+	new TWEEN.Tween(object.position)
+		.to(target.position, animateDuration)
+		.easing(TWEEN.Easing.Quintic.In)
+		.start();
 
-    new TWEEN.Tween(object.position)
-      .to(target.position, animateDuration)
-      .easing(TWEEN.Easing.Quintic.In)
-      .start();
-
-    new TWEEN.Tween(object.rotation)
-      .to(target.rotation, animateDuration)
-      .easing(TWEEN.Easing.Quintic.In)
-      .start();
-  });
-
-  new TWEEN.Tween(this)
-    .to({}, animateDuration)
-    .onUpdate(function(){
-      renderer[grade].render(scene[grade], camera);
-    })
-    .start();
+	new TWEEN.Tween(object.rotation)
+		.to(target.rotation, animateDuration)
+		.easing(TWEEN.Easing.Quintic.In)
+		.start();
 }
 
-function addCards(){
-	_.forEach(cards, function(v1, grade){
+function renderAnimation(renderer, scene) {
+	new TWEEN.Tween(this)
+		.to({}, animateDuration)
+		.onUpdate(function() {
+			renderer.render(scene, camera);
+		})
+		.start();
+}
+
+function startAnimation(grade, kClass) {
+	if (kClass !== undefined) {
+		_.forEach(cardObjects[grade][kClass], function(object, period) {
+			if (period === 'classCard') return;
+			var target = moveTarget[grade][kClass][period];
+
+			registerAnimation(object, target);
+		});
+	} else {
+		_.forEach(cardObjects[grade], function(object, kClass) {
+			var target = moveTarget[grade][kClass].classCard;
+			var object = object.classCard;
+
+			registerAnimation(object, target);
+		});
+	}
+
+	renderAnimation(renderer[grade], scene[grade]);
+}
+
+function randomize(object) {
+	object.position.x = Math.randomRange(-300, 300);
+	object.position.y = Math.randomRange(300, -300);
+	object.position.z = Math.randomRange(-300, 300);
+
+	object.rotateX(Math.randomRange(0, 360));
+	object.rotateY(Math.randomRange(0, 360));
+	object.rotateZ(Math.randomRange(0, 360));
+}
+
+function addCards() {
+	_.forEach(cards, function(v1, grade) {
 		cardObjects[grade] = {};
-		_.forEach(cards[grade], function(v2, kClass){
-			var elem = $(document.createElement('div')).addClass('gg card')
-			  .append(
-				$(document.createElement('a')).append(
-					$(document.createElement('h1')).html(grade + ' - ' + kClass)
-				).on('click', function(){
-					updateClass(grade, kClass);
-				})
-			  );
+		_.forEach(cards[grade], function(v2, kClass) {
+			var elem = $(document.createElement('div'))
+				.addClass('gg card class')
+				.append(
+					$(document.createElement('a'))
+					.append(
+						$(document.createElement('h1'))
+						.addClass('class')
+						.html(grade + ' - ' + kClass)
+					)
+					.on('click', function() {
+						updateClass(grade, kClass);
+					})
+				);
 
 			var object = new THREE.CSS3DObject(elem.get(0));
+			randomize(object);
 
-			object.position.x = Math.randomRange(-300, 300);
-			object.position.y = Math.randomRange(300, -300);
-			object.position.z = Math.randomRange(-300, 300);
-
-			object.rotateX(Math.randomRange(0, 360));
-			object.rotateY(Math.randomRange(0, 360));
-			object.rotateZ(Math.randomRange(0, 360));
+			object.cardType = 'class';
+			object.cardData = {
+				grade: grade,
+				'class': kClass
+			};
 
 			cardObjects[grade][kClass] = {};
 			cardObjects[grade][kClass].classCard = object;
 			scene[grade].add(object);
 
-			_.forEach(cards[grade][kClass], function(v, period){
+			var back = $(document.createElement('div'))
+				.addClass('gg card class')
+				.append(
+					$(document.createElement('a'))
+					.append(
+						$(document.createElement('h1'))
+						.append(
+							$(document.createElement('i'))
+							.addClass('mdi mdi-chevron-left')
+						)
+						.addClass('class')
+						.html('BACK')
+					)
+				).css({
+					opacity: 0
+				})
+				.on('click', function() {
+					backToGrade(grade, kClass);
+				});
+			var backObject = new THREE.CSS3DObject(back.get(0));
+			randomize(backObject);
+
+			backObject.cardType = 'period';
+			backObject.cardData = {
+				grade: grade,
+				'class': kClass,
+				period: 'backCard'
+			};
+
+			cardObjects[grade][kClass] = {};
+			cardObjects[grade][kClass].classCard = object;
+			cardObjects[grade][kClass].backCard = backObject;
+			scene[grade].add(object);
+			scene[grade].add(backObject);
+
+			_.forEach(cards[grade][kClass], function(v, period) {
 				var match = v.match(/^([^\s$#]+)(?:(\$|#)([^]+))?$/);
-			    if(match){
-			      v = match[1];
-			    }
+				if (match) {
+					v = match[1];
+				}
 
-			    var text = assigned[v].text;
+				var text = assigned[v].text;
 
-			    if(match && match[2] && match[3]){
-			      text = (match[2] === '$') ? text + match[3] : match[3];
-			    }
+				if (match && match[2] && match[3]) {
+					text = (match[2] === '$') ? text + match[3] : match[3];
+				}
 
-			    var elem = $(document.createElement('div')).addClass('gg card')
-			      .append(
-			        $(document.createElement('h2'))
-			          .append($(document.createElement('i')).addClass(assigned[v].icon))
-			      )
-			      .append(
-			        $(document.createElement('h3')).text(period + '교시 ' + text)
-			      );
+				var elem = $(document.createElement('div'))
+					.addClass('gg card')
+					.append($(document.createElement('h2'))
+						.append($(document.createElement('i'))
+							.addClass(assigned[v].icon))
+					)
+					.append(
+						$(document.createElement('h3'))
+						.text(period + '교시 ' + text)
+					)
+					.css({
+						opacity: 0
+					});
 
-			    var object = new THREE.CSS3DObject(elem.get(0));
+				var object = new THREE.CSS3DObject(elem.get(0));
+				object.cardType = 'period';
+				object.cardData = {
+					grade: grade,
+					'class': kClass,
+					period: period
+				};
 
-			    //Randomize Object position
-			    /*
-				  object.position.x = Math.randomRange(-300, 300);
-			    object.position.y = Math.randomRange(300, -300);
-			    object.position.z = Math.randomRange(-300, 300);
-
-			    object.rotateX(Math.randomRange(0, 360));
-			    object.rotateY(Math.randomRange(0, 360));
-			    object.rotateZ(Math.randomRange(0, 360));
-				*/ //TODO update period code
-
-			    cardObjects[grade][kClass][period] = object;
+				cardObjects[grade][kClass][period] = object;
+				scene[grade].add(object);
 			});
 		});
 	});
 }
 
-function updateClass(){
-	//TODO show periods
+var filterSameClass = function(grade, kClass) {
+	return (function(v) {
+		return v.cardType === 'period' && v.cardData.grade === grade && v.cardData['class'] === kClass;
+	});
+};
+
+var filterNotSameClass = function(grade, kClass) {
+	return (function(v) {
+		return !(v.cardType === 'period' && v.cardData.grade === grade && v.cardData['class'] === kClass);
+	});
+};
+
+function updateClass(grade, kClass) {
+	scene[grade].children
+		.filter(filterSameClass(grade, kClass))
+		.forEach(function(v) {
+			v.element.style.animation = "fade-in 0.5s linear 1 forwards";
+			randomize(v);
+		});
+
+	scene[grade].children
+		.filter(filterNotSameClass(grade, kClass))
+		.forEach(function(v) {
+			v.element.style.animation = "fade-out 0.5s linear 1 forwards";
+		});
+
+	writePeriodCardMoveTarget(grade, kClass);
+
+	TWEEN.removeAll();
+	startAnimation(grade, kClass);
 }
 
-function writeMoveTarget(){
-	_.forEach(cards, function(v1, grade){
-		moveTarget[grade] = {};
-		_.forEach(cards[grade], function(v2, kClass){
-			var cardX = (kClass - 1) % Math.floor(cardsPerRow);
-		    var cardY = Math.floor((kClass - 1) / Math.floor(cardsPerRow));
-		    var parentWidth = parseInt(window.getComputedStyle(parent).width.replace(/[^0-9\.]/g, ''));
-		    moveTarget[grade][kClass] = {
-		      position: {
-		        x: ((cardX) * cardWidth) - ((cardsPerRow + 1) * cardWidth / 2)  - (parentWidth - 640) / 4,
-		        y: (((cardsRow - 1) / 2) - cardY) * (cardHeight / 2),
-		        z: cardZ
-		      },
+function getPosition(index, cardsRow) {
+	var cardX = (index - 1) % Math.floor(cardsPerRow);
+	var cardY = Math.floor((index - 1) / Math.floor(cardsPerRow));
+	var parentWidth = parseInt(window.getComputedStyle(parent)
+		.width.replace(/[^0-9\.]/g, ''));
 
-		      rotation: {
-		        x: 0,
-		        y: 0,
-		        z: 0
-		      }
-			};
+	return {
+		position: {
+			x: ((cardX) * cardWidth) - ((cardsPerRow + 1) * cardWidth / 2) - (parentWidth - 640) / 4,
+			y: (((cardsRow - 1) / 2) - cardY) * (cardHeight / 2),
+			z: cardZ
+		},
+
+		rotation: {
+			x: 0,
+			y: 0,
+			z: 0
+		}
+	};
+}
+
+function writeMoveTarget() {
+	var cardsRow = Math.ceil(Object.keys(cards)
+		.length / cardsPerRow);
+	_.forEach(cards, function(v1, grade) {
+		moveTarget[grade] = {};
+		_.forEach(cards[grade], function(v2, kClass) {
+			moveTarget[grade][kClass] = {};
+			moveTarget[grade][kClass].classCard = getPosition(kClass, cardsRow);
 		});
 	});
 }
 
-function update(){
-  width = parseInt(window.getComputedStyle(parent).width.replace(/[^0-9\.]/g, ''));
-  height = 600;
+function writePeriodCardMoveTarget(grade, kClass) {
+	moveTarget[grade] = {};
+	moveTarget[grade][kClass] = {};
 
-  camera.aspect = width / height;
-  camera.updateProjectionMatrix();
-  _.forEach(cards, function(v1, grade){
-	  renderer[grade].setSize(width, height);
-  });
+	var cardCount = Object.keys(cards[grade][kClass])
+		.length;
+	var cardsRow = Math.ceil((cardCount + 1) / cardsPerRow);
+	_.forEach(cards[grade][kClass], function(v, period) {
+		moveTarget[grade][kClass][period] = getPosition(period, cardsRow);
+	});
 
-  cardsPerRow = width / (cardWidth / 2.24);
-  if(cardsPerRow < 1) cardsPerRow = 1;
-
-  cardsRow = Math.ceil(Object.keys(cards).length / cardsPerRow);
-  writeMoveTarget();
+	moveTarget[grade][kClass].backCard = getPosition(cardCount + 1, cardsRow);
 }
 
-function resize(){
-  update();
-  startAnimationAll();
+function update() {
+	width = parseInt(window.getComputedStyle(parent)
+		.width.replace(/[^0-9\.]/g, ''));
+	height = 600;
+
+	camera.aspect = width / height;
+	camera.updateProjectionMatrix();
+	_.forEach(cards, function(v1, grade) {
+		renderer[grade].setSize(width, height);
+	});
+
+	cardsPerRow = width / (cardWidth / 2.24);
+	if (cardsPerRow < 1) cardsPerRow = 1;
+
+	writeMoveTarget();
+}
+
+function resize() {
+	update();
+	startAnimationAll();
 }
 
 animate();
 
-$(document).ready(function(){
-  parent = $('#top').get(0);
-  update();
-  addCards();
+$(document)
+	.ready(function() {
+		parent = $('#top')
+			.get(0);
+		update();
+		addCards();
 
-  _.forEach(cards, function(v, grade){
-	  var renderView = $(renderer[grade].domElement);
-	  $('#timetable-' + grade + 'grade').append(renderView);
-  });
-  startAnimationAll();
-});
+		_.forEach(cards, function(v, grade) {
+			var renderView = $(renderer[grade].domElement);
+			$('#timetable-' + grade + 'grade')
+				.append(renderView);
+		});
+		startAnimationAll();
+	});
 
-function startAnimationAll(){
+function startAnimationAll() {
 	TWEEN.removeAll();
-	_.forEach(cards, function(v, grade){
+	_.forEach(cards, function(v, grade) {
 		startAnimation(grade);
 	});
 }
 
-$(window).resize(resize);
+$(window)
+	.resize(resize);

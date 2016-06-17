@@ -23,6 +23,20 @@
     display: inline-block;
 }
 
+.card.class {
+  padding: 0;
+}
+
+.card a {
+  display: block;
+  cursor: pointer;
+}
+
+.card .class {
+  font-size: 5rem;
+  line-height: 300px;
+}
+
 .card h2 i.mdi{
   font-size: 70px !important;
 }
@@ -104,6 +118,25 @@ i[class$=edu] {
   /*.facebook{
     margin: 0 auto!important;
   }*/
+}
+@keyframes fade-out {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
 
 .meals {

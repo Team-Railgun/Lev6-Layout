@@ -45,6 +45,16 @@ main {
   text-align: center;
 }
 
+.unbold {
+  font-weight: normal;
+}
+
+.brand.blue.item img {
+  width:40px;
+  height:auto;
+  margin-left:1.5em
+}
+
 @media (min-width: 1200px){
   .container {
     width: 1170px;
