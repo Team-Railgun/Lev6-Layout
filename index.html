@@ -40,17 +40,16 @@
 
 <body>
     <!--헤더 시작 -->
-    <div id="mobile-menu" class="ui sidebar vertical menu"> <!-- 모바일 사이드바-->
-      <a class="item physical_edu">
-        <i class="mdi mdi-flag"></i>
-        도움말
+    <!-- <div id="mobile-menu" class="ui sidebar vertical menu">
+      <a class="item" href="/help">
+        <i class="mdi mdi-help-circle"></i>
+        <span>도움말</span>
       </a>
-      <div class="item">
-          <a class="ui blue button" href="/login">
-              <i class="mdi mdi-account"></i> <span>로그인</span>
-          </a>
-      </div>
-  </div>
+      <a class="item" href="/login">
+        <i class="mdi mdi-account"></i>
+        <span>로그인</span>
+      </a>
+    </div> -->
 
     <div class="ui grid page pusher">
       <div class="tablet computer only row">
@@ -58,23 +57,29 @@
           <a class="brand blue item">
             <img src="img/team-railgun.png" title="팀레일건/Lev6 심볼">
             <span style="margin-left:1em"><h5><i class="mdi mdi-school"></i>Lev6</h5> 제주 서귀포고등학교</span>
-        </a>
+          </a>
 
-            <div class="item borderless">
-                <button type="submit" class="ui blue button" href="/login">
-                <i class="mdi mdi-account"></i>
-                <span>로그인</sapn>
-              </button>
-            </div>
-        </form>
+          <form class="right menu desktop-only">
+            <a class="item">
+              <i class="mdi mdi-account"></i>
+              <span>로그인</sapn>
+            </a>
+            <a class="item" href="/help">
+              <i class="mdi mdi-help-circle"></i>
+              <span>도움말</span>
+            </a>
+          </form>
 
-        <div class="right menu tablet-only">
-            <div class="item">
-                <a class="ui blue button" href="/login">
-                    <i class="mdi mdi-account"></i> <span>로그인</span>
-                </a>
-            </div>
-        </div>
+          <div class="right menu tablet-only">
+            <a class="item" href="/login">
+              <i class="mdi mdi-account"></i>
+              <span>로그인</span>
+            </a>
+            <a class="item" href="/help">
+              <i class="mdi mdi-help-circle"></i>
+              <span>도움말</span>
+            </a>
+          </div>
         </nav>
     </div>
 
@@ -85,11 +90,11 @@
              <span style="margin-left:1em"><h5><i class="mdi mdi-school"></i>Lev6</h5> 제주 서귀포고등학교</span>
            </a>
 
-            <div class="right menu">
+            <!-- <div class="right menu">
                 <a href="#" class="item" onclick="return openSide()">
                     <i class="mdi mdi-menu"></i>
                 </a>
-            </div>
+            </div> -->
         </nav>
     </div>
     <!--헤더 끝 -->
@@ -166,7 +171,7 @@
             <div class="content">
               이번주 <span class="unbold">일정</span>
             </div>
-            </h3>
+          </h2>
           <div class="ui tabular menu">
             <a class="item" href="#">이번주</a>
             <a class="item" href="#">다음주</a>
