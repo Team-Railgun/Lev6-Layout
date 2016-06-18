@@ -40,9 +40,15 @@
 .card h2 i.mdi{
   font-size: 70px !important;
 }
+
 .card h3 {
   margin-top: 50px;
   font-size: 40px !important;
+}
+
+.card span {
+  font-size: 30px !important;
+  line-height: 30px;
 }
 
 /*.card-4 {
