@@ -109,7 +109,7 @@
 									<a class="icon item">
 										<i class="mdi mdi-chevron-left"></i>
 									</a>
-									<a class="item"><i class="mdi mdi-face"></i><span>1학년</span></a>
+									<a class="active item"><i class="mdi mdi-face"></i><span>1학년</span></a>
 									<a class="item"><i class="mdi mdi-face"></i><span>2학년</span></a>
 									<a class="item"><i class="mdi mdi-face"></i><span>3학년</span></a>
 									<a class="icon item">
@@ -170,6 +170,12 @@
 					<tfoot>
 					</tfoot>
 				</table>
+
+				<div class="ui horizontal divider header">
+					<i class="mdi mdi-clock icon"></i>
+					시간표
+				</div>
+
 				<form>
 					<h2>
 						<i class="mdi mdi-autorenew"></i>
@@ -196,36 +202,41 @@
 
 					<input class="ui button" type="submit" value="변경">
 				</form>
-        <form>
-          <h2>
-            <i class="mdi mdi-bullhorn physical_edu" style="font-size:2em"></i>
-              공지<span style="font-weight:normal; color:black;">수정하기</span>
-            </div>
-          </h2>
 
-          <div class="ui right labeled input">
-            <input type="text" placeholder="메세지 수정">
-            <div class="ui dropdown label">
-              <div class="text">
-                <div class="ui red lable">
-                  RED
-                </div>
-              </div>
-              <i class="dropdown icon"></i>
-              <div class="menu">
-                <div class="item">
-                  <div class="ui red lable">Red</div>
-                </div>
-                <div class="item">
-                  <div class="ui blue lable">Blue</div>
-                </div>
-                <div class="item">
-                <div class="ui red yellow">Yellow</div>
-              </div>
-              </div>
-            </div>
-          </div>
-        </form>
+				<div class="ui horizontal divider header">
+					<i class="icon mdi mdi-message-alert"></i>
+					공지
+				</div>
+
+				<form>
+					<h2>
+						<i class="mdi mdi-bullhorn physical_edu" style="font-size:2em"></i>
+						공지<span class="unbold">수정하기</span>
+					</h2>
+
+					<div class="ui right labeled input">
+						<input type="text" placeholder="메세지 수정">
+						<div class="ui dropdown label">
+							<div class="text">
+								<div class="ui red label">
+									Red
+								</div>
+							</div>
+							<i class="mdi mdi-chevron-down"></i>
+							<div class="menu">
+								<div class="item">
+									<div class="ui red lable">Red</div>
+								</div>
+								<div class="item">
+									<div class="ui blue lable">Blue</div>
+								</div>
+								<div class="item">
+									<div class="ui red yellow">Yellow</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</form>
 			</main>
 		</div>
 		<div class="ui inverted vertical footer segment" style="top:3em">
