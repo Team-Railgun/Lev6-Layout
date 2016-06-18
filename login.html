@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="ko">
-
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -79,7 +78,7 @@
 						<img src="img/team-railgun.png" title="팀레일건/Lev6 심볼">
 						<span style="margin-left:1em"><h5><i class="mdi mdi-school"></i>Lev6</h5> 제주 서귀포고등학교</span>
 					</a>
-					
+
 					<form class="right menu desktop-only">
 						<div class="item borderless">
 							<button type="submit" class="ui blue button" href="/login">
@@ -115,32 +114,76 @@
 			</div>
 			<!--헤더 끝 -->
 
-			<div class="ui middle aligned center aligned grid">
-				<div class="column">
-					<form class="ui large form">
-						<div class="ui stacked segment">
-							<h1 class="ui teal image header" style="float:left; font-size:4em;">
-								<div class="content">
-									SIGN<span class="unbold">IN</span>
+			<div class="ui center middle aligned grid account-layout">
+				<div class="segment account-segment" style="width: 100%">
+					<div class="ui two column very relaxed stackable grid centered container account-container">
+						<div class="column">
+							<form class="ui large form">
+								<div class="ui stacked segment account middle aligned">
+									<div class="account-contents">
+										<h1 class="ui teal image header" style="float:left; font-size:4em;">
+											<div class="content">
+												LOG<span class="unbold">IN</span>
+											</div>
+										</h1>
+										<div class="field">
+											<div class="ui left icon input">
+												<i class="mdi mdi-account icon" style="font-size:1em;"></i>
+												<input type="text" name="email" placeholder="이메일 주소">
+											</div>
+										</div>
+										<div class="field">
+											<div class="ui left icon input">
+												<i class="mdi mdi-key icon" style="font-size:1em"></i>
+												<input type="password" name="password" placeholder="비밀번호">
+											</div>
+										</div>
+										<div class="ui fluid large teal submit button">로그인</div>
+									</div>
 								</div>
-							</h1>
-							<div class="field">
-								<div class="ui left icon input">
-									<i class="mdi mdi-account icon" style="font-size:1em"></i>
-									<!-- 이상하게 폰트-어섬만 입력폼에 들어감-->
-									<input type="text" name="email" placeholder="이메일 주소">
-								</div>
-							</div>
-							<div class="field">
-								<div class="ui left icon input">
-									<i class="mdi mdi-key icon" style="font-size:1em"></i>
-									<!-- 이상하게 폰트-어섬만 입력폼에 들어감-->
-									<input type="password" name="password" placeholder="비밀번호">
-								</div>
-							</div>
-							<div class="ui fluid large teal submit button">로그인</div>
+							</form>
 						</div>
-					</form>
+
+						<div class="ui vertical divider">
+							or
+						</div>
+
+						<div class="column">
+							<form class="ui large form">
+								<div class="ui stacked segment account">
+									<div class="account-contents">
+										<h1 class="ui teal image header" style="float:left; font-size:4em;">
+											<div class="content">
+												SIGN<span class="unbold">IN</span>
+											</div>
+										</h1>
+
+										<div class="field">
+											<div class="ui left icon input">
+												<i class="mdi mdi-account icon" style="font-size:1em"></i>
+												<input type="text" name="email" placeholder="이메일 주소">
+											</div>
+										</div>
+
+										<div class="field">
+											<div class="ui left icon input">
+												<i class="mdi mdi-account icon" style="font-size:1em"></i>
+												<input type="text" name="email" placeholder="이메일 확인">
+											</div>
+										</div>
+
+										<div class="field">
+											<div class="ui left icon input">
+												<i class="mdi mdi-key icon" style="font-size:1em"></i>
+												<input type="password" name="password" placeholder="비밀번호">
+											</div>
+										</div>
+										<div class="ui fluid large teal submit button">회원가입</div>
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>

@@ -1,12 +1,51 @@
 body {
   background-color: #DADADA;
 }
+
 body > .grid {
   height: 100%;
 }
+
 .image {
   margin-top: -100px;
 }
+
 .column {
   max-width: 450px;
+}
+
+.account {
+  min-height: 450px;
+  display: table;
+  width: 100%;
+}
+
+.account-contents {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+@media (max-width: 768px){
+  .account {
+    min-height: initial;
+  }
+
+  .account-layout {
+    margin-top: 50px !important;
+  }
+
+  .account-segment, .account-layout {
+    width: 100vw !important;
+    padding: 0 !important;
+  }
+
+  /* to override !important */
+  div.account-layout > div.account-segment > div.ui.container.account-container {
+    width: 100vw !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+  body > .grid {
+    height: initial;
+  }
 }
