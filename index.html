@@ -36,6 +36,12 @@
     <script src="js/render.js"></script>
     <script src="js/time.js"></script>
     <script src="js/ui.js"></script>
+
+    <style>
+        .mdi-close:before {
+            content: "\F156" !important;
+        }
+    </style>
 </head>
 
 <body>
@@ -49,7 +55,6 @@
         <i class="mdi mdi-help-circle"></i>
         <span>도움말</span>
       </a>
-    </div>
 
     <div class="ui grid page pusher">
       <div class="tablet computer only row">
@@ -134,10 +139,20 @@
     <h2 class="ui icon header" style="margin:0 auto; margin-bottom:5px">
         <i class="mdi mdi-bullhorn physical_edu" style="font-size:2em"></i>
         <div class="content">
-          NOTI<span style="font-weight:normal; color:black;">CE</span>
-          <div class="sub header">여러 소식들</div>
+            NOTI<span style="font-weight:normal; color:black;">CE</span>
+        	<div class="sub header">여러 소식들</div>
         </div>
-      </h2>
+    </h2>
+
+    <div class="row notifications">
+        <div class="ui aligned red-border message" style="width: 100%;">
+            <i class="icon close mdi mdi-close"></i>
+            <div class="content">
+              <div class="header">급식 없는 날</div>
+              급식 재료 공급에 차질이 생겨 오는 6월 21일은 급식이 없는 날로 운영됩니다. 각자 먹을 음식을 가져오시기 바랍니다.
+            </div>
+        </div>
+    </div>
     <main class="row section main_two">
         <div class="ui vertical menu meals notification">
             <h2 class="ui icon header">
