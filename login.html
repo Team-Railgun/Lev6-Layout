@@ -69,11 +69,24 @@
   </script>
 </head>
 <body>
+  <!--헤더 시작 -->
+  <div id="mobile-menu" class="ui sidebar vertical menu"> <!-- 모바일 사이드바-->
+    <a class="item physical_edu">
+      <i class="mdi mdi-flag"></i>
+      도움말
+    </a>
+    <div class="item">
+        <a class="ui blue button" href="/login">
+            <i class="mdi mdi-account"></i> <span>회원가입</span>
+        </a>
+    </div>
+</div>
+
   <div class="ui grid page pusher">
     <div class="tablet computer only row">
       <nav class="ui fixed menu navbar" role="navigation">
         <a class="brand blue item">
-          <img src="img/team-railgun.png" style="width:40px; height:auto; margin-left:1.5em" title="팀레일건/Lev6 심볼">
+          <img src="img/team-railgun.png" title="팀레일건/Lev6 심볼">
           <span style="margin-left:1em"><h5><i class="mdi mdi-school"></i>Lev6</h5> 제주 서귀포고등학교</span>
       </a>
 
@@ -96,38 +109,44 @@
           </div> -->
 
           <div class="item borderless">
-              <!-- <button type="submit" class="ui blue button" href="/login"> -->
+              <button type="submit" class="ui blue button" href="/login">
               <i class="mdi mdi-account"></i>
               <span>회원가입</sapn>
-            <!-- </button> -->
+            </button>
           </div>
       </form>
-      <div class="mobile only narrow row">
-          <nav class="ui fixed menu navbar">
-            <a class="brand item">
-              <img src="img/team-railgun.png" style="width:40px; height:auto; margin-left:1.5em" title="팀레일건/Lev6 심볼">
-              <span style="margin-left:1em"><h5><i class="mdi mdi-school"></i>Lev6</h5> 제주 서귀포고등학교</span>
-          </a>
 
-              <div class="right menu">
-                  <!-- <a href="#" class="item" onclick="return openSide()">
-                      <i class="mdi mdi-menu"></i>
-                  </a> -->
-                  <div class="item">
-                      <i class="mdi mdi-account"></i>
-                      <span>회원가입</span>
-                  </div>
-              </div>
-          </nav>
+      <div class="right menu tablet-only">
+          <div class="item">
+              <a class="ui blue button" href="/login">
+                  <i class="mdi mdi-account"></i> <span>로그인</span>
+              </a>
+          </div>
       </div>
-    </div>
-  <!-- </div> -->
+      </nav>
+  </div>
+
+  <div class="mobile only narrow row">
+      <nav class="ui fixed menu navbar">
+         <a class="brand blue item">
+           <img src="img/team-railgun.png" title="팀레일건/Lev6 심볼">
+           <span style="margin-left:1em"><h5><i class="mdi mdi-school"></i>Lev6</h5> 제주 서귀포고등학교</span>
+         </a>
+
+          <div class="right menu">
+              <a href="#" class="item" onclick="return openSide()">
+                  <i class="mdi mdi-menu"></i>
+              </a>
+          </div>
+      </nav>
+  </div>
+  <!--헤더 끝 -->
 
   <div class="ui middle aligned center aligned grid">
     <div class="column">
       <form class="ui large form">
         <div class="ui stacked segment">
-          <h1 class="ui teal image header" style="float:left; font-size:4em">
+          <h1 class="ui teal image header" style="float:left; font-size:4em;">
             <!-- <img src="img/team-railgun.png" class="image"> -->
             <div class="content">
               SIGN<span style="font-weight:normal; color:black">IN</span>
@@ -135,13 +154,13 @@
           </h1>
           <div class="field">
             <div class="ui left icon input">
-              <i class="mdi mdi-account" style="font-size:1em"></i> <!-- 이상하게 폰트-어섬만 입력폼에 들어감-->
+              <i class="mdi mdi-account icon" style="font-size:1em"></i> <!-- 이상하게 폰트-어섬만 입력폼에 들어감-->
               <input type="text" name="email" placeholder="이메일 주소">
             </div>
           </div>
           <div class="field">
             <div class="ui left icon input">
-              <i class="mdi mdi-key" style="font-size:1em"></i> <!-- 이상하게 폰트-어섬만 입력폼에 들어감-->
+              <i class="mdi mdi-key icon" style="font-size:1em"></i> <!-- 이상하게 폰트-어섬만 입력폼에 들어감-->
               <input type="password" name="password" placeholder="비밀번호">
             </div>
           </div>
