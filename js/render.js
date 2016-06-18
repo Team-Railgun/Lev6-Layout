@@ -17,7 +17,11 @@ var cards = {
 			1: 'korean$b',
 			2: 'career',
 			3: 'physics',
-			4: 'english',
+			4: {
+				extends: 'english',
+				name: '영어',
+				desc: '영어실 수업<br>준비물: 단어노트'
+			},
 			5: 'mathematics_i',
 			6: 'korean$a',
 			7: 'club#학급',
@@ -172,7 +176,8 @@ function addCards() {
 						.html('BACK')
 					)
 				).css({
-					opacity: 0
+					opacity: 0,
+					display: 'none'
 				})
 				.on('click', function() {
 					backToGrade(grade);
@@ -194,29 +199,56 @@ function addCards() {
 			scene[grade].add(backObject);
 
 			_.forEach(cards[grade][kClass], function(v, period) {
-				var match = v.match(/^([^\s$#]+)(?:(\$|#)([^]+))?$/);
-				if (match) {
-					v = match[1];
-				}
+				var cardData;
+				if(typeof v === 'string'){
+					var match = v.match(/^([^\s$#]+)(?:(\$|#)([^]+))?$/);
+					if (match) {
+						v = match[1];
+					}
 
-				var text = assigned[v].text;
+					var text = assigned[v].text;
+					if (match && match[2] && match[3]) {
+						text = (match[2] === '$') ? text + match[3] : match[3];
+					}
 
-				if (match && match[2] && match[3]) {
-					text = (match[2] === '$') ? text + match[3] : match[3];
+					cardData = {
+						text: text,
+						icon: assigned[v].icon,
+						desc: '',
+						extends: v
+					};
+				}else{
+					cardData = {};
+					cardData.extends = '';
+
+					if(v.extends){
+						cardData = JSON.parse(JSON.stringify(assigned[v.extends])); //Clones assigned
+						cardData.extends = v.extends;
+					}
+					cardData.desc = '';
+
+					if(v.text) cardData.text = v.text;
+					if(v.icon) cardData.icon = v.icon;
+					if(v.desc) cardData.desc = v.desc;
 				}
 
 				var elem = $(document.createElement('div'))
 					.addClass('gg card')
 					.append($(document.createElement('h2'))
 						.append($(document.createElement('i'))
-							.addClass(assigned[v].icon))
+							.addClass(cardData.icon))
 					)
 					.append(
 						$(document.createElement('h3'))
-						.text(period + '교시 ' + text)
+						.text(period + '교시 ' + cardData.text)
+					)
+					.append(
+						$(document.createElement('span'))
+						.html(cardData.desc)
 					)
 					.css({
-						opacity: 0
+						opacity: 0,
+						display: 'none'
 					});
 
 				var object = new THREE.CSS3DObject(elem.get(0));
@@ -263,16 +295,11 @@ var filterNotGrade = function(grade){
 function updateClass(grade, kClass) {
 	scene[grade].children
 		.filter(filterSameClass(grade, kClass))
-		.forEach(function(v) {
-			v.element.style.animation = "fade-in 0.5s linear 1 forwards";
-			randomize(v);
-		});
+		.forEach(revealAndRandomizeObject);
 
 	scene[grade].children
 		.filter(filterNotSameClass(grade, kClass))
-		.forEach(function(v) {
-			v.element.style.animation = "fade-out 0.5s linear 1 forwards";
-		});
+		.forEach(hideObject);
 
 	writePeriodCardMoveTarget(grade, kClass);
 
@@ -283,19 +310,32 @@ function updateClass(grade, kClass) {
 function backToGrade(grade){
 	scene[grade].children
 		.filter(filterGrade(grade))
-		.forEach(function(v) {
-			v.element.style.animation = "fade-in 0.5s linear 1 forwards";
-			randomize(v);
-		});
+		.forEach(revealAndRandomizeObject);
 
 	scene[grade].children
 		.filter(filterNotGrade(grade))
-		.forEach(function(v) {
-			v.element.style.animation = "fade-out 0.5s linear 1 forwards";
-		});
+		.forEach(hideObject);
 
 	TWEEN.removeAll();
 	startAnimation(grade);
+}
+
+function revealAndRandomizeObject(v){
+	$(v.element).css({
+		animation: 'fade-in 0.5s linear 1 forwards',
+		display: 'initial'
+	});
+	randomize(v);
+}
+
+function hideObject(v){
+	$(v.element).css({
+		animation: 'fade-out 0.5s linear 1 forwards'
+	}).on('animationend', function(e){
+		$(this).css({
+			display: 'none'
+		}).off('animationend');
+	});
 }
 
 function getPosition(index, cardsRow) {
