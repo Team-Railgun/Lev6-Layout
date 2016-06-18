@@ -5,7 +5,7 @@
 		<meta charset="utf-8">
 		<meta http-equiv="x-ua-compatible" content="ie=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-		<title>Lev6 - admin</title>
+		<title>Lev6 - 관리자</title>
 
 		<!-- jQuery -->
 		<script src="bower_components/jquery/dist/jquery.min.js"></script>
@@ -38,11 +38,11 @@
 	<body>
 		<!--헤더 시작 -->
     <div id="mobile-menu" class="ui sidebar vertical menu">
-      <a class="item" href="/login">
+      <a class="item">
         <i class="mdi mdi-account-minus"></i>
         <span>로그아웃</span>
       </a>
-      <a class="item" href="/help">
+      <a class="item" href="help">
         <i class="mdi mdi-help-circle"></i>
         <span>도움말</span>
       </a>
@@ -61,7 +61,7 @@
 							<i class="mdi mdi-account-minus"></i>
 							<span>로그아웃</sapn>
 						</a>
-						<a class="item" href="/help">
+						<a class="item" href="help">
 							<i class="mdi mdi-help-circle"></i>
 							<span>도움말</span>
 						</a>
@@ -219,23 +219,10 @@
 					<div class="ui right labeled input">
 						<input type="text" placeholder="메세지 수정">
 						<div class="ui dropdown label">
-							<div class="text">
-								<div class="ui red label">
-									Red
-								</div>
-							</div>
+							<input type="hidden" name="color">
+							<div class="text">색상</div>
 							<i class="mdi mdi-chevron-down"></i>
-							<div class="menu">
-								<div class="item">
-									<div class="ui red lable">Red</div>
-								</div>
-								<div class="item">
-									<div class="ui blue lable">Blue</div>
-								</div>
-								<div class="item">
-									<div class="ui red yellow">Yellow</div>
-								</div>
-							</div>
+							<div class="colors drop menu"></div>
 						</div>
 					</div>
 				</form>

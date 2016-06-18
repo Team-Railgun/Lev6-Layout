@@ -25,6 +25,7 @@
 		<link href="css/login.css" rel="stylesheet">
 		<link href="css/common.css" rel="stylesheet">
 		<link href="css/table.css" rel="stylesheet">
+		<script src="js/ui.js"></script>
 		<script>
 			$(document)
 				.ready(function() {
@@ -62,9 +63,9 @@
 		<div id="mobile-menu" class="ui sidebar vertical menu">
 			<!-- 모바일 사이드바-->
 			<a class="item" href="/help">
-        <i class="mdi mdi-help-circle"></i>
-        <span>도움말</span>
-      </a>
+				<i class="mdi mdi-help-circle"></i>
+				<span>도움말</span>
+			</a>
 		</div>
 
 		<div class="ui grid page pusher">
@@ -76,7 +77,7 @@
 					</a>
 
 					<form class="right menu desktop-only">
-						<a class="item" href="/help">
+						<a class="item" href="help">
 				      <i class="mdi mdi-help-circle"></i>
 				      <span>도움말</span>
 				    </a>
@@ -156,14 +157,14 @@
 										<div class="field">
 											<div class="ui left icon input">
 												<i class="mdi mdi-account icon" style="font-size:1em"></i>
-												<input type="text" name="email" placeholder="이메일 주소">
+												<input type="text" name="name" placeholder="이름">
 											</div>
 										</div>
 
 										<div class="field">
 											<div class="ui left icon input">
 												<i class="mdi mdi-account icon" style="font-size:1em"></i>
-												<input type="text" name="email" placeholder="이메일 확인">
+												<input type="text" name="email" placeholder="이메일 주소">
 											</div>
 										</div>
 
@@ -171,6 +172,13 @@
 											<div class="ui left icon input">
 												<i class="mdi mdi-key icon" style="font-size:1em"></i>
 												<input type="password" name="password" placeholder="비밀번호">
+											</div>
+										</div>
+
+										<div class="field">
+											<div class="ui left icon input">
+												<i class="mdi mdi-key icon" style="font-size:1em"></i>
+												<input type="password" name="password-confirm" placeholder="비밀번호 확인">
 											</div>
 										</div>
 										<div class="ui fluid large teal submit button">회원가입</div>

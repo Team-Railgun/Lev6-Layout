@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <title>Lev6 - main</title>
+    <title>Lev6 - 메인</title>
 
     <!-- jQuery -->
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
@@ -36,20 +36,26 @@
     <script src="js/render.js"></script>
     <script src="js/time.js"></script>
     <script src="js/ui.js"></script>
+
+    <style>
+        .mdi-close:before {
+            content: "\F156" !important;
+        }
+    </style>
 </head>
 
 <body>
     <!--헤더 시작 -->
     <div id="mobile-menu" class="ui sidebar vertical menu">
-      <a class="item" href="/login">
+      <a class="item" href="login.html">
         <i class="mdi mdi-account"></i>
         <span>로그인</span>
       </a>
-      <a class="item" href="/help">
+      <a class="item">
         <i class="mdi mdi-help-circle"></i>
         <span>도움말</span>
       </a>
-    </div>
+	 </div>
 
     <div class="ui grid page pusher">
       <div class="tablet computer only row">
@@ -60,11 +66,11 @@
           </a>
 
           <form class="right menu desktop-only">
-            <a class="item">
+            <a class="item" href="login.html">
               <i class="mdi mdi-account"></i>
               <span>로그인</sapn>
             </a>
-            <a class="item" href="/help">
+            <a class="item">
               <i class="mdi mdi-help-circle"></i>
               <span>도움말</span>
             </a>
@@ -75,7 +81,7 @@
               <i class="mdi mdi-account"></i>
               <span>로그인</span>
             </a>
-            <a class="item" href="/help">
+            <a class="item">
               <i class="mdi mdi-help-circle"></i>
               <span>도움말</span>
             </a>
@@ -87,7 +93,8 @@
         <nav class="ui fixed menu navbar">
            <a class="brand blue item">
              <img src="img/team-railgun.png" title="팀레일건/Lev6 심볼">
-             <span style="margin-left:1em"><h5><i class="mdi mdi-school"></i>Lev6</h5> 제주 서귀포고등학교</span>
+             <span style="margin-left:1em">
+               <h5><i class="mdi mdi-school"></i>Lev6</h5> 제주 서귀포고등학교</span>
            </a>
 
             <div class="right menu">
@@ -133,10 +140,20 @@
     <h2 class="ui icon header" style="margin:0 auto; margin-bottom:5px">
         <i class="mdi mdi-bullhorn physical_edu" style="font-size:2em"></i>
         <div class="content">
-          NOTI<span style="font-weight:normal; color:black;">CE</span>
-          <div class="sub header">여러 소식들</div>
+            NOTI<span style="font-weight:normal; color:black;">CE</span>
+        	<div class="sub header">여러 소식들</div>
         </div>
-      </h2>
+    </h2>
+
+    <div class="row notifications">
+        <div class="ui aligned red-border message" style="width: 100%;">
+            <i class="icon close mdi mdi-close"></i>
+            <div class="content">
+              <div class="header">급식 없는 날</div>
+              급식 재료 공급에 차질이 생겨 오는 6월 21일은 급식이 없는 날로 운영됩니다. 각자 먹을 음식을 가져오시기 바랍니다.
+            </div>
+        </div>
+    </div>
     <main class="row section main_two">
         <div class="ui vertical menu meals notification">
             <h2 class="ui icon header">

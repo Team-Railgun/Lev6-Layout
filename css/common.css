@@ -132,6 +132,65 @@ h2 .mdi {
   color: #008000 !important;
 }
 
+[class*="must circular"] {
+  border-radius: 500rem !important;
+}
+
+.message {
+  text-align: left;
+}
+
+.message.red-border {
+  border-left: solid #DB2828 10px;
+}
+
+.message.orange-border {
+  border-left: solid #F2711C 10px;
+}
+
+.message.yellow-border {
+  border-left: solid #FBBD08 10px;
+}
+
+.message.olive-border {
+  border-left: solid #B5CC18 10px;
+}
+
+.message.green-border {
+  border-left: solid #21BA45 10px;
+}
+
+.message.teal-border {
+  border-left: solid #00B5AD 10px;
+}
+
+.message.blue-border {
+  border-left: solid #2185D0 10px;
+}
+
+.message.violet-border {
+  border-left: solid #6435C9 10px;
+}
+
+.message.purple-border {
+  border-left: solid #A333C8 10px;
+}
+
+.message.pink-border {
+  border-left: solid #E03997 10px;
+}
+
+.message.brown-border {
+  border-left: solid #A5673F 10px;
+}
+
+.message.grey-border {
+  border-left: solid #767676 10px;
+}
+
+.message.black-border {
+  border-left: solid #1B1C1D 10px;
+}
 /* TODO:오버런 네비계이션 네누 스타일
 .bgwhite{
   background-color: white;
