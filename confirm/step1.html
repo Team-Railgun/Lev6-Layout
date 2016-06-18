@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="x-ua-compatible" content="ie=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<title>Lev6 - 관리자</title>
+
+		<!-- jQuery -->
+		<script src="../bower_components/jquery/dist/jquery.min.js"></script>
+
+		<!-- lodash -->
+		<script src="../bower_components/lodash/dist/lodash.min.js"></script>
+
+		<!-- semantic-ui -->
+		<link href="../bower_components/semantic/dist/semantic.min.css" rel="stylesheet">
+		<script src="../bower_components/semantic/dist/semantic.min.js"></script>
+
+		<!-- mdi -->
+		<link href="../bower_components/mdi/css/materialdesignicons.min.css" media="all" rel="stylesheet">
+
+		<!-- three.js -->
+		<script src="../bower_components/three.js/build/three.min.js"></script>
+		<script src="../bower_components/three.js/examples/js/libs/tween.min.js"></script>
+		<script src="../bower_components/three.js/examples/js/renderers/CSS3DRenderer.js"></script>
+
+		<!-- octicons -->
+		<link rel="stylesheet" href="bower_components/octicons/octicons/octicons.css">
+
+		<!-- common, index etc.. -->
+		<link href="../css/common.css" rel="stylesheet">
+		<script src="../js/assigned.js"></script>
+		<script src="../js/time.js"></script>
+		<script src="../js/ui.js"></script>
+	</head>
+
+	<body>
+		<!--헤더 시작 -->
+		<div id="mobile-menu" class="ui sidebar vertical menu">
+			<a class="item">
+				<i class="mdi mdi-account-minus"></i>
+				<span>로그아웃</span>
+			</a>
+			<a class="item" href="help">
+				<i class="mdi mdi-help-circle"></i>
+				<span>도움말</span>
+			</a>
+		</div>
+
+		<div class="ui grid page pusher">
+			<div class="tablet computer only row">
+				<nav class="ui fixed menu navbar" role="navigation">
+					<a class="brand item">
+						<img src="../img/team-railgun.png" title="팀레일건/Lev6 심볼">
+						<span style="margin-left:1em"><h5><i class="mdi mdi-school"></i>Lev6</h5> 제주 서귀포고등학교</span>
+					</a>
+
+					<form class="right menu desktop-only">
+						<a class="item">
+							<i class="mdi mdi-account-minus"></i>
+							<span>로그아웃</sapn>
+						</a>
+						<a class="item" href="help">
+							<i class="mdi mdi-help-circle"></i>
+							<span>도움말</span>
+						</a>
+					</form>
+
+					<div class="right menu tablet-only">
+						<div class="item">
+							<a class="ui blue button">
+								<i class="mdi mdi-account-minus"></i>
+								<span>로그아웃</span>
+							</a>
+						</div>
+					</div>
+				</nav>
+			</div>
+
+			<div class="mobile only narrow row">
+				<nav class="ui fixed menu navbar">
+					<a class="brand blue item">
+						<img src="../img/team-railgun.png" title="팀레일건/Lev6 심볼">
+						<span style="margin-left:1em"><h5><i class="mdi mdi-school"></i>Lev6</h5> 제주 서귀포고등학교</span>
+					</a>
+
+					<div class="right menu">
+						<div class="item">
+							<a href="#" class="item" onclick="return openSide()">
+								<i class="mdi mdi-menu"></i>
+							</a>
+						</div>
+					</div>
+				</nav>
+			</div>
+
+			<!--헤더 끝 -->
+			<main class="section row bg" style="top:50px">
+				<h1 class="row" style="width: 100%">
+					<i class="mdi mdi-library-plus"></i>
+					새 시간표 <span class="unbold">생성</span>
+				</h1>
+
+				<div class="ui steps">
+					<div class="active step">
+						<div class="content">
+							<div class="title">
+								<i class="mdi mdi-magnify"></i>
+								학교<span class="unbold">검색</span>
+							</div>
+							<div class="description">서비스를 사용할 학교를 검색합니다.</div>
+						</div>
+					</div>
+					<div class="step">
+						<div class="content">
+							<div class="title">
+								<i class="mdi mdi-checkbox-marked-outline"></i>
+								학교<span class="unbold">인증</span>
+							</div>
+							<div class="description">해당 학교의 선생님인지 확인합니다.</div>
+						</div>
+					</div>
+					<div class="step">
+						<div class="content">
+							<div class="title">
+								<i class="mdi mdi-settings"></i>
+								설정
+							</div>
+							<div class="description">세부사항을 설정합니다.</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="ui horizontal divider">
+					<h1>
+						<i class="mdi mdi-magnify"></i>
+						학교<span class="unbold">검색</span>
+					</h1>
+				</div>
+
+				<div class="ui segment" style="width: 100%">
+					<div class="ui relaxed divided list">
+						<div class="item">
+							<div class="content">
+								<div class="header">대덕고등학교</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</main>
+		</div>
+		<div class="ui inverted vertical footer segment" style="top:3em">
+			<div class="ui container">
+				<div class="row-container warp">
+					<div class="credit">
+						<h5 class="ui inverted header">
+							<img src="../img/team-railgun.png" style="width:50px; hight:auto;">
+							<span>Project Lev6</span></h5>
+						<p>copyright(C) Team-railgun</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		</div>
+	</body>
+
+</html>
