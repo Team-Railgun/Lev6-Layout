@@ -11,6 +11,7 @@ body > .grid {
 }
 
 .column {
+  margin-top: 37px;
   max-width: 450px;
 }
 
@@ -48,4 +49,7 @@ body > .grid {
   body > .grid {
     height: initial;
   }
+
+.footer {
+  top:7.5em
 }
