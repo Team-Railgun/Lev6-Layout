@@ -1,12 +1,20 @@
 body {
   background-color: #DADADA;
 }
+
 body > .grid {
   height: 100%;
 }
+
 .image {
   margin-top: -100px;
 }
+
 .column {
+  margin-top: 37px;
   max-width: 450px;
+}
+
+.footer {
+  top:7.5em
 }
