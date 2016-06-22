@@ -60,21 +60,37 @@
       </a>
     </div>
     <script>
-    function test_push() {
-      Push.create('Lev6', {
-        body: '시간표가 변경됨!',
-        icon: {
-            x16: 'img/team-railgun.png',
-            x32: 'img/team-railgun.png'
-        },
-      });
-    };
+	    function test_push() {
+	      Push.create('Lev6', {
+	        body: '시간표가 변경됨!',
+	        icon: {
+	            x16: 'img/team-railgun.png',
+	            x32: 'img/team-railgun.png'
+	        }
+	      });
+	    }
+
+		/*$(document).ready(function(){
+			if(Notification in window){
+				if(Notification.permission === 'default'){
+					Notification.requestPermission().then(function(perm){
+						if(perm === 'granted') test_push();
+					});
+				}else if(Notification.permission === 'granted'){
+					test_push();
+				}
+			}else{
+				test_push();
+			}
+		});*/
+
+		//file:/// 에서는 permission 작동안함?
     </script>
 
     <div class="ui grid page pusher">
       <div class="tablet computer only row">
         <nav class="ui fixed menu navbar" role="navigation">
-          <a class="brand blue item" onclick="test_push">
+          <a class="brand blue item" onclick="test_push();">
             <img src="img/team-railgun.png" title="팀레일건/Lev6 심볼">
             <span style="margin-left:1em"><h5><i class="mdi mdi-school"></i>Lev6</h5> 제주 서귀포고등학교</span>
           </a>
