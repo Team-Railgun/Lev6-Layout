@@ -191,6 +191,15 @@ h2 .mdi {
 .message.black-border {
   border-left: solid #1B1C1D 10px;
 }
+
+.navbar * {
+  color: #FFFFFF !important;
+}
+
+.navbar .item:not(.brand) {
+  border-bottom: solid 3px #FBBD08 !important;
+}
+
 /* TODO:오버런 네비계이션 네누 스타일
 .bgwhite{
   background-color: white;

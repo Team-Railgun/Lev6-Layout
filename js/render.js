@@ -26,6 +26,34 @@ var cards = {
 			6: 'korean$a',
 			7: 'club#학급',
 			8: 'club#학급'
+		},
+		2: { // 1-2
+			1: 'korean$b',
+			2: 'career',
+			3: 'physics',
+			4: {
+				extends: 'english',
+				name: '영어',
+				desc: '영어실 수업<br>준비물: 단어노트'
+			},
+			5: 'mathematics_i',
+			6: 'korean$a',
+			7: 'club#학급',
+			8: 'club#학급'
+		},
+		3: { // 1-1
+			1: 'korean$b',
+			2: 'career',
+			3: 'physics',
+			4: {
+				extends: 'english',
+				name: '영어',
+				desc: '영어실 수업<br>준비물: 단어노트'
+			},
+			5: 'mathematics_i',
+			6: 'korean$a',
+			7: 'club#학급',
+			8: 'club#학급'
 		}
 	},
 	2: {
